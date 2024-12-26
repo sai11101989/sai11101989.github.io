@@ -4,10 +4,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
 <style>
-body {font-family: Quicksand; font-size: 25px; color:#333}
+body {font-family: Quicksand; font-size: 20px; color:#333}
         table
         {
-            font-family: Quicksand; font-size:25px; color:#333;
+            font-family: Quicksand; font-size:20px; color:#333;
             border-collapse:collapse;
             width:1200px;
             padding:10px;
@@ -16,15 +16,32 @@ body {font-family: Quicksand; font-size: 25px; color:#333}
         }
 
 </style>
+<script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML = today 
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
-<body>
+<body onload="startTime()">
 <table align="center" width="100%" cellspacing="10" cellpadding="10" border="0">
 <tr>
-<td><h1 align="center" id="home">CS6.201 - Introduction to Software Systems</h1><h3 align="center">Software Engineering Research Center, IIIT Hyderabad</h3><hr> </td>
+<td><h1 align="center" id="home">CS6.201 - Introduction to Software Systems</h1><h3 align="center">Software Engineering Research Center, IIIT Hyderabad</h3> <hr> </td>
 </tr>
 <tr>
-<td align="center">&nbsp;&nbsp;&nbsp; <a href="#about">About</a>&nbsp;&nbsp;&nbsp; <a href="#lecture">Lecture/Lab/Office Hours</a> &nbsp;&nbsp;&nbsp; <a href="#cpolicy">Course Policy</a> &nbsp;&nbsp;&nbsp; <a href="#schedule">Lectures</a> &nbsp;&nbsp;&nbsp;  <a href="#lab">Lab</a> &nbsp;&nbsp;&nbsp; <a href="#activity">Activities</a> &nbsp;&nbsp;&nbsp; <a href="#staff">Staff</a>&nbsp;&nbsp;&nbsp; <hr></td>
+<td align="center">&nbsp;&nbsp;&nbsp; <a href="#about">About</a>&nbsp;&nbsp;&nbsp; <a href="#lecture">Lecture/Lab/Office Hours</a> &nbsp;&nbsp;&nbsp; <a href="#cpolicy">Course Policy</a> &nbsp;&nbsp;&nbsp; <a href="#schedule">Lectures</a> &nbsp;&nbsp;&nbsp;  <a href="#lab">Lab</a> &nbsp;&nbsp;&nbsp; <a href="#activity">Exams/Key</a> &nbsp;&nbsp;&nbsp; <a href="#staff">Staff</a>&nbsp;&nbsp;&nbsp; <hr></td>
 </tr>
 <tr>
 <td> <p align="left"><b id="about">About:</b> Introduction to Software Systems (ISS) is a foundation course designed to introduce concepts associated with developing software systems to early undergraduate students.Basic concepts about Operating Systems, Computer Networks, Software Engineering principles, Databases are covered as part of this course. Programming languages & Tools like BASH SHELL, SQL, NoSQL, HTML, CSS, JavaScript, JS Frameworks, APIs, REST, Python, Flask are covered as part of this course.</p>
@@ -77,10 +94,10 @@ body {font-family: Quicksand; font-size: 25px; color:#333}
 <br> 
 <table border="1" align="center" width="10%">
 <tr><th>Deliverables</th><th>Weightage</th></tr>
-<tr><td align="center">Assignment (3)</td><td align="center">25%</td></tr>
-<tr><td align="center">Lab Activities (6)</td><td align="center">20%</td></tr>
+<tr><td align="center">Assignment (3)</td><td align="center">20%</td></tr>
+<tr><td align="center">Lab Activities (10)</td><td align="center">20%</td></tr>
 <tr><td align="center">Class Activity (3)</td><td align="center">10%</td></tr>
-<tr><td align="center">QUIZ(1)</td><td align="center">10%</td></tr>
+<tr><td align="center">QUIZ(2)</td><td align="center">15%</td></tr>
 <tr><td align="center">MID(1)</td><td align="center">15%</td></tr>
 <tr><td align="center">FINAL EXAM(1)</td><td align="center">20%</td></tr>
 </table>
@@ -93,7 +110,6 @@ body {font-family: Quicksand; font-size: 25px; color:#333}
 </table>
 
 <table align="center" width="10%" cellspacing="10" cellpadding="10" border="1">
-
 <tr>
 <td colspan="5"><p align="left"><b id="schedule">Lecture Schedule & Content</b>&nbsp;&nbsp;&nbsp;[<a href="#home">go to top</a>]</p></td>
 </tr>
@@ -107,40 +123,43 @@ body {font-family: Quicksand; font-size: 25px; color:#333}
 <td align="center">02</td><td align="center">15/1/2025 (Wednesday)</td><td align="center">11/1/2025 (Satruday)</td><td align="center">SHELL Session 1</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">03</td><td align="center">22/1/2025 (Wednesday)</td><td align="center">18/1/2025 (Satruday)</td><td align="center">SHELL Session 2</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">03</td><td align="center">15/1/2025 (Wednesday) 2-5 PM</td><td align="center">15/1/2025 (Wednesday) 2-5 PM</td><td align="center">SHELL Session 2 <br> <i>*Class Activity</i></td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">04</td><td align="center">29/1/2025 (Wednesday)</td><td align="center">25/1/2025 (Satruday)</td><td align="center">SQL</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">04</td><td align="center">22/1/2025 (Wednesday)</td><td align="center">18/1/2025 (Satruday)</td><td align="center">Databases - SQL</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">05</td><td align="center">5/2/2025 (Wednesday)</td><td align="center">1/2/2025 (Satruday)</td><td align="center">NoSQL</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">05</td><td align="center">29/1/2025 (Wednesday)</td><td align="center">25/1/2025 (Satruday)</td><td align="center">Unstructured Databases - NoSQL</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">06</td><td align="center">12/2/2025 (Wednesday)</td><td align="center">8/2/2025 (Satruday)</td><td align="center">Computer Networks & Web 1/2/3/n</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">06</td><td align="center">5/2/2025 (Wednesday)</td><td align="center">1/2/2025 (Satruday)</td><td align="center">Python Session 1</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">07</td><td align="center">19/2/2025 (Wednesday)</td><td align="center">22/2/2025 (Satruday)</td><td align="center">HTML</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">07</td><td align="center">12/2/2025 (Wednesday)</td><td align="center">8/2/2025 (Satruday)</td><td align="center">Python Session 2</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">08</td><td align="center">5/3/2025 (Wednesday)</td><td align="center">12/3/2025 (Satruday)</td><td align="center">CSS</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">08</td><td align="center">19/2/2025 (Wednesday)</td><td align="center">22/2/2025 (Satruday)</td><td align="center">Computer Networks</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">09</td><td align="center">19/3/2025 (Wednesday)</td><td align="center">15/3/2025 (Satruday)</td><td align="center">JS - Session 1</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">09</td><td align="center">5/3/2025 (Wednesday)</td><td align="center">12/3/2025 (Satruday)</td><td align="center">Web Technologies</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">10</td><td align="center">26/3/2025 (Wednesday)</td><td align="center">22/3/2025 (Satruday)</td><td align="center">JS - Session 2</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">10</td><td align="center">19/3/2025 (Wednesday)</td><td align="center">15/3/2025 (Satruday)</td><td align="center">HTML</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">11</td><td align="center">1/4/2025 (Wednesday)</td><td align="center">29/3/2025 (Saturday)</td><td align="center">JS Frameworks</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">11</td><td align="center">26/3/2025 (Wednesday)</td><td align="center">22/3/2025 (Satruday)</td><td align="center">CSS<br><i>*Class Activity</i></td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">12</td><td align="center">9/4/2025 (Wednesday)</td><td align="center">5/4/2025 (Saturday)</td><td align="center">Python - Session 1</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">12</td><td align="center">1/4/2025 (Wednesday)</td><td align="center">29/3/2025 (Saturday)</td><td align="center">JS Session 1</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">13</td><td align="center">16/4/2025 (Wednesday)</td><td align="center">12/4/2025 (Saturday)</td><td align="center">Python - Session 2</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">13</td><td align="center">9/4/2025 (Wednesday)</td><td align="center">5/4/2025 (Saturday)</td><td align="center">JS Sesson 2</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 <tr>
-<td align="center">14</td><td align="center">23/4/2025 (Wednesday)</td><td align="center">19/4/2025 (Satruday)</td><td align="center">SE Practices</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+<td align="center">14</td><td align="center">16/4/2025 (Wednesday)</td><td align="center">12/4/2025 (Saturday)</td><td align="center">JS Libraries/Frameworks</td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
+</tr>
+<tr>
+<td align="center">15</td><td align="center">23/4/2025 (Wednesday)</td><td align="center">19/4/2025 (Satruday)</td><td align="center">SE Practices<br><i>*Class Activity</i></td><td align="center">[Slides] [Notes] <br>[Suppl Material]</td>
 </tr>
 </table>
 <table align="center" width="10%" cellspacing="10" cellpadding="10" border="0">
@@ -166,10 +185,10 @@ body {font-family: Quicksand; font-size: 25px; color:#333}
 <td align="center">04</td><td align="center">12/2/2025 (Wednesday)</td><td align="center">NoSQL Session</td><td align="center">[Slides] [Activity] [Solutions]</td>
 </tr>
 <tr>
-<td align="center">05</td><td align="center">19/2/2025 (Wednesday)</td><td align="center">Python Session</td><td align="center">[Slides] [Activity] [Solutions]</td>
+<td align="center">05</td><td align="center">19/2/2025 (Wednesday)</td><td align="center">Python Session 1</td><td align="center">[Slides] [Activity] [Solutions]</td>
 </tr>
 <tr>
-<td align="center">06</td><td align="center">5/3/2025 (Wednesday)</td><td align="center">Python Session</td><td align="center">[Slides] [Activity] [Solutions]</td>
+<td align="center">06</td><td align="center">5/3/2025 (Wednesday)</td><td align="center">Python Session 2</td><td align="center">[Slides] [Activity] [Solutions]</td>
 </tr>
 <tr>
 <td align="center">07</td><td align="center">19/3/2025 (Wednesday)</td><td align="center">HTML - DOM</td><td align="center">[Slides] [Activity] [Solutions]</td>
@@ -181,29 +200,71 @@ body {font-family: Quicksand; font-size: 25px; color:#333}
 <td align="center">09</td><td align="center">2/4/2025 (Wednesday)</td><td align="center">JavaScript Session</td><td align="center">[Slides] [Activity] [Solutions]</td>
 </tr>
 <tr>
-<td align="center">10</td><td align="center">16/4/2025 (Wednesday)</td><td align="center">Flask Session</td><td align="center">[Slides] [Activity] [Solutions]</td>
+<td align="center">10</td><td align="center">16/4/2025 (Wednesday)</td><td align="center">RESTFul APIs</td><td align="center">[Slides] [Activity] [Solutions]</td>
 </tr>
 <tr>
-<td align="center">11</td><td align="center">23/4/2025 (Wednesday)</td><td align="center">REST APIs</td><td align="center">[Slides] [Activity] [Solutions]</td>
+<td align="center">11</td><td align="center">23/4/2025 (Wednesday)</td><td align="center">FAST APIs</td><td align="center">[Slides] [Activity] [Solutions]</td>
 </tr>
 </table>
 <table align="center" width="10%" cellspacing="10" cellpadding="10" border="0">
 <tr><td><hr></td></tr>
 <table>
-<table align="center" width="10%" cellspacing="10" cellpadding="10" border="0">
-<tr><td>
-<p align="left"> <b id="activity">Activities</b>&nbsp;&nbsp;&nbsp;[<a href="#home">go to top</a>]</p>
-<ul> 
-<li>Class Activity 1 - [Paper]&nbsp;&nbsp;&nbsp;[Key]</li><li>Class Activity 2 - [Paper]&nbsp;&nbsp;&nbsp;[Key]</li><li>Class Activity 3 - [Paper]&nbsp;&nbsp;&nbsp;[Key]</li>
-<li>Assignment 1 - [Paper]&nbsp;&nbsp;&nbsp;[Solutions]</li> <li>Assignment 2 - [Paper]&nbsp;&nbsp;&nbsp;[Solutions]</li><li>Assignment 3 - [Paper]&nbsp;&nbsp;&nbsp;[Solutions]</li><li>QUIZ - [Paper]&nbsp;&nbsp;&nbsp;[Key] </li><li>MID - [Paper]&nbsp;&nbsp;&nbsp;[Key] </li><li>FINAL EXAM [Paper]&nbsp;&nbsp;&nbsp;[Key]</li> </ul>
-</td></tr>
-<table>
+<table align="center" width="10%" cellspacing="10" cellpadding="10" border="1">
+<tr><td colspan="5">
+<p align="left"> <b id="activity">Exam/Key</b>&nbsp;&nbsp;&nbsp;[<a href="#home">go to top</a>]</p>
+</td>
+<tr>
+<th align="center">S.No</th><th align="center">Exam Type</th><th align="center">Announcement</th><th align="center">Submission Due</th><th align="center">Material</th>
+</tr>
+<tr>
+<td align="center">1</td><td align="center">Class Activity (SHELL) - Section A & B</td><td align="center"> 15/1/2025 4:15 PM (Wednesday)</td><td align="center"> 15/1/2025 5:00 PM (Wednesday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">2</td><td align="center">Assignment 1 (SHELL & SQL) </td><td align="center"> 15/1/2025 8:00 PM (Wednesday)</td><td align="center"> 28/1/2025 8:00 PM (Tuesday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">3</td><td align="center">QUIZ 1 - Section A & B </td><td align="center"> 29/1/2025 2:30 PM (Wednesday)</td><td align="center"> 29/1/2025 3:30 PM (Wednesday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">4</td><td align="center">Assignment 2 (Python & NoSQL) </td><td align="center"> 5/2/2025 8:00 PM (Wednesday)</td><td align="center"> 21/2/2025 8:00 PM (Friday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">5</td><td align="center">Class Activity (Python) - Section A</td><td align="center"> 5/3/2025 9:35 AM (Wednesday)</td><td align="center"> 5/3/2025 09:55 AM (Wendesday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">6</td><td align="center">Class Activity (Python) - Section B</td><td align="center"> 12/3/2025 9:35 AM (Saturday)</td><td align="center"> 12/3/2025 09:55 AM (Saturday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">7</td><td align="center">Class Activity (HTML/CSS) - Section A</td><td align="center"> 26/3/2025 9:35 AM (Wednesday)</td><td align="center"> 26/3/2025 09:55 AM (Wednesday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">8</td><td align="center">Class Activity (HTML/CSS) - Section B</td><td align="center"> 22/3/2025 9:35 AM (Saturday)</td><td align="center"> 22/3/2025 09:55 AM (Saturday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">9</td><td align="center">MID Exam</td><td align="center">TBA</td><td align="center"> TBA</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">10</td><td align="center">Assignment 3 (HTML/CSS/JS)</td><td align="center"> 7/4/2025 8:00 PM (Monday)</td><td align="center"> 21/4/2025 08:00 PM (Monday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">11</td><td align="center">QUIZ 2 - Section A & B </td><td align="center"> 9/4/2025 2:30 PM (Wednesday)</td><td align="center"> 9/4/2025 3:30 PM (Wednesday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">12</td><td align="center">Class Activity (JS) - Section B</td><td align="center"> 19/4/2025 9:35 AM (Saturday)</td><td align="center"> 19/4/2025 9:55 AM (Saturday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">13</td><td align="center">Class Activity (JS) - Section A</td><td align="center"> 23/4/2025 9:35 AM (Wednesday)</td><td align="center"> 23/4/2025 9:55 AM (Wednesday)</td><td align="center">[Paper] [Key]</td>
+</tr>
+<tr>
+<td align="center">14</td><td align="center">Final-Hackathon</td><td align="center">TBA</td><td align="center"> TBA</td><td align="center">[Paper] [Key]</td>
+</tr>
+</table>
 <table align="center" width="10%" cellspacing="10" cellpadding="10" border="0">
 <tr>
 <td><hr> <p align="left"><b id="staff">Staff:</b>&nbsp;&nbsp;&nbsp;[<a href="#home">go to top</a>] </p></td>
 <tr>
-<td align="left"> <font face="Quicksand" size="3"><img style="border-radius: 50%" src="https://sai11101989.github.io/images/saianirudh.jpg" width="15%" height="15%" align="center"/> <br>
- <b>Instructor</b><br><a href="https://www.linkedin.com/in/sai11101989/">Dr. Sai Anirudh Karre, PhD</a><br>saianirudh.karre[at]iiit.ac.in<br> Data Product Manager, Phenom Inc.<br> Guest Faculty, SERC, IIIT Hyderabad</font><hr></td>
+<td align="left"> <font face="Quicksand" size="2"><img style="border-radius: 50%" src="https://sai11101989.github.io/images/saianirudh.jpg" width="15%" height="15%" align="center"/> <br>
+ <b>Instructor</b><br><a href="https://www.linkedin.com/in/sai11101989/">Dr. Sai Anirudh Karre, PhD</a><br>saianirudh.karre[at]iiit.ac.in<br> Data Product Manager, Phenom Inc.<br> Guest Faculty, SERC, IIIT Hyderabad<br><a href="https://sai11101989.github.io">https://sai11101989.github.io</a></font><hr></td>
 </tr>
 <!--
 <tr>
@@ -239,8 +300,17 @@ body {font-family: Quicksand; font-size: 25px; color:#333}
  Teaching Assistant<br><a href="https://www.linkedin.com/in/sai11101989/">Dr. Sai Anirudh Karre, PhD</a><br>saianirudh.karre[at]iiit.ac.in<br>Office Hours: Wed 4:00 PM to 6:00 PM</td>
 </tr> -->
 </table>
+<table align="center" width="10%" cellspacing="10" cellpadding="10" border="0">
+<tr>
+<td><p align="center"><font face="Quicksand" size="4">
+Important Links: <a href="https://intranet.iiit.ac.in/offices/static/files/Almanac_S25-Final.pdf">Spring 2025 Almanac</a> | <a href="https://intranet.iiit.ac.in/offices/static/files/Lecture_timetable_S2025_Ver2.pdf">Spring 2025 Lecture Timetable</a> | <a href="https://intranet.iiit.ac.in/offices/static/files/Tutorial%26Labs_S25-Ver1.pdf">Spring 2025 Lab Timetable</a> | <a href="https://courses.iiit.ac.in/course/view.php?id=4729">Courses Portal</a> | <a href="https://intranet.iiit.ac.in/offices/static/files/List%20of%20Holidays%20-%20Year%202025%20.pdf">Holidays-2025</a>
+</font></p><hr></td>
+</tr>
+</table>
 
-
-</body>
-	<p align="center"><font face="Quicksand" size="2">Course site hosted by github.io <br>Course Policy credits to <a href="https://faculty.iiit.ac.in/~raghu.reddy/Home.html">Dr. Raghu Reddy</a> & <a href="https://karthikvaidhyanathan.com/">Dr. Karthik Vaidhyanathan</a></font></p>
+<font face="Quicksand" size="3"> <div align="center" id="txt"></div></font> 
+<p align="center"><font face="Quicksand" size="2">
+		Course site hosted by github.io <br>Course Policy credits to <a href="https://faculty.iiit.ac.in/~raghu.reddy/Home.html">Dr. Raghu Reddy</a> & <a href="https://karthikvaidhyanathan.com/">Dr. Karthik Vaidhyanathan</a><br>
+	<a href="https://serc.iiit.ac.in">Software Engineering Research Center</a>,<a href="https://iiit.ac.in">IIIT Hyderabad</a></font></p>
+	</body>
 </html>
