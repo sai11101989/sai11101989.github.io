@@ -78,14 +78,19 @@ CREATE TABLE Subject (
 CREATE TABLE Student (
     ID_Student int NOT NULL,
    RollNumber int NOT NULL,
-    LastName varchar(255) NOT NULL,
-    FirstName varchar(255),
+    FirstName varchar(255) NOT NULL,
+    LastName varchar(255),
     Age int,
     CHECK (Age>=16)
 );
 
+--Insertion
+INSERT INTO Student (ID_Student, RollNumber, FirstName, LastName, Age)
+VALUES ('1245', '20162153', 'Sai Anirudh', 'Karre',  '35');
+
 --Selection of data from table
 SELECT * FROM Students;
+
 
 --Filtering the single value data
 SELECT * FROM Students WHERE RollNumber='20162153';
@@ -102,3 +107,71 @@ SELECT * FROM Student ORDER BY RollNumber ASC;
 --Pattern search using filter on a table with multiple condition using AND
 SELECT *
 FROM Student WHERE FirstName = 'Sai' AND RollNumber LIKE '2016%';
+
+--Pattern search using filter on a table with multiple condition using OR
+SELECT *
+FROM Student
+WHERE FirstName = 'Sai' OR Age = '21';
+
+--Filter using NOT - different variants and wildcard
+SELECT * FROM Student WHERE NOT LastName = 'Anirudh';
+SELECT * FROM Student WHERE FirstName NOT LIKE 'Sai%';
+SELECT * FROM Student WHERE RollNumber NOT BETWEEN 20162153 AND 20162169;
+SELECT * FROM Student WHERE RollNumber NOT IN ('20162153', '20162169');
+SELECT * FROM Student WHERE  NOT Age > 17;
+
+--Updating data using a Filter
+UPDATE Student
+SET Age = '23', City= 'Hyderabad'
+WHERE RollNumber = 20162153;
+
+--deletion of data for specific filter
+DELETE FROM Student WHERE RollNumber='20162153';
+
+--Aggregate function MIN(), MAX(), COUNT(), SUM(), AVG()
+SELECT MIN(Marks) FROM Subjects WHERE RollNumber='20162153';
+SELECT MAX(Marks) FROM Subjects WHERE RollNumber='20162153';
+SELECT SUM(Marks) FROM Subjects WHERE RollNumber='20162153' AND Semester='2';
+SELECT AVG(Marks) FROM Subjects WHERE RollNumber='20162153' AND Semester in ('1','2','3');
+SELECT COUNT(RollNumber) from Subjects where Marks > 80 and SubjectName='ISS' and Semester=2;
+
+--Group by & Having to be used with Aggregate Function for summary
+SELECT COUNT(RollNumber), SubjectName
+FROM Subjects
+GROUP BY Marks
+HAVING COUNT(RollNumber) > 5;
+
+--Column Alias
+SELECT RollNumber AS ID FROM Student;
+
+--JOIN - inner
+SELECT St.RollNumber, Sb.SubjectName, Sb.Semester
+FROM Student as St
+INNER JOIN Subjects as Sb ON St.RollNumber=Sb.RollNumber
+
+--JOIN - left
+SELECT St.RollNumber, Sb.SubjectName, Sb.Semester
+FROM Student as St
+LEFT JOIN Subjects as Sb ON St.RollNumber=Sb.RollNumber
+
+SELECT St.RollNumber, Sb.SubjectName, Sb.Semester
+FROM Student as St
+LEFT OUTER JOIN Subjects as Sb ON St.RollNumber=Sb.RollNumber
+
+--JOIN - left
+SELECT St.RollNumber, Sb.SubjectName, Sb.Semester
+FROM Student as St
+RIGHT JOIN Subjects as Sb ON St.RollNumber=Sb.RollNumber
+
+SELECT St.RollNumber, Sb.SubjectName, Sb.Semester
+FROM Student as St
+RIGHT OUTER JOIN Subjects as Sb ON St.RollNumber=Sb.RollNumber
+
+--JOIN - full
+SELECT St.RollNumber, Sb.SubjectName, Sb.Semester
+FROM Student as St
+FULL OUTER JOIN Subjects as Sb ON St.RollNumber=Sb.RollNumber
+
+
+
+
