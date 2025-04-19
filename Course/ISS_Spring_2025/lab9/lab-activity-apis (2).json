@@ -1,0 +1,44 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "name": "Frustrated Amey",
+            "description": "After having a fun time grading lab6 and resolving all queries, Amey is questioning his decision to join IIITH. He is seriously consdering switching lines and has applied to a very popular college in the state known for being best in hotel management. It was inaugurated by the Great Khali. What is the name of the college? One word answer, all lowercase.",
+            "solution": "reyansh",
+            "marks": 2.5,
+            "wrong_answer": "Oops! That's not the right answer. Try again. Only one word answer.",
+            "submission_format": "Send a GET request to /submit/1 with the payload {'name': <your_solution>}",
+            "next_task": 2,
+        },
+        {
+            "id": 2,
+            "name": "Travel Dilemma",
+            "description": "Hooray! Amey has been accepted into the college. He is now planning his daily travel to the college from Bakul Nivas. However, he is confused which city he should travel to. Can you help him? One word answer, all lowercase.",
+            "solution": "nizamabad",
+            "marks": 2.5,
+            "wrong_answer": "Not the right city. Check your spelling maybe. Make sure you are telling their newly opened branch.",
+            "submission_format": "Send a POST request to /submit/2 with the form data {'city': <your_solution>}",
+            "next_task": 3
+        },
+        {
+            "id": 3,
+            "name": "College requirement",
+            "description": "Arghhh! Poor Amey got an assignment on the very first day of college. He has to learn their most-awaited college song. His friends gave him a link (https://www.youtube.com/watch?v=dQw4w9WgXcQ). But turns out that it is wrong. Can you find the correct song? Submit the id of the video.",
+            "solution": "gDS3UVdjOKg",
+            "marks": 2.5,
+            "wrong_answer": "Nuh-uh! Find the video which is 3:37 minutes long.",
+            "submission_format": "Send a PUT request to /submit/3 with a request header {'video': <your_solution>}. The video id is the last part of the link. For example, for the link https://www.youtube.com/watch?v=dQw4w9WgXcQ, the video id is dQw4w9WgXcQ",
+            "next_task": 4
+        },
+        {
+            "id": 4,
+            "name": "Fallback to IIIT",
+            "description": "Oops! Amey didn't complete the assignment on time. This led him to get expelled from the college. He is now back at IIITH TAing the same batch of students for ISS :(. The admissions office however, needs to remove his old records from the database to give him a new identity. Can you find his roll number? One word answer, 10 digit roll number.",
+            "solution": "2022111026",
+            "marks": 2.5,
+            "wrong_answer": "Find Amey's roll number.",
+            "submission_format": "Send a DELETE request to /submit/4 with the payload {'roll_number': <your_solution>}",
+            "next_task": null
+        }
+    ]
+}
