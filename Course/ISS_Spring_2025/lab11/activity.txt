@@ -1,0 +1,9 @@
+Clone this repository: https://github.com/anshium/iss-pygame
+
+Make changes, upload on Moodle.
+
+Get Isabella online, spawn her, spawn pink rectangles. Phineas should catch green ones, and Isa should catch pink ones and not the other way round.
+
+Update the scores for Phi and Isa separately and print them.
+
+WAD for Isabella and Arrow keys and space for Phineas.
