@@ -16,6 +16,20 @@ body {font-family: Quicksand; font-size: 20px; color:#333}
         }
 
 </style>
+	<script>
+  
+  const lastModified = new Date(document.lastModified);
+ 
+  const formattedDate = lastModified.toLocaleString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit'
+  });
+
+  document.getElementById("lastUpdated").innerHTML += formattedDate;
+</script>
 <script>
 function startTime() {
   const today = new Date();
@@ -432,7 +446,7 @@ Important Links: <a href="https://intranet.iiit.ac.in/offices/static/files/Alman
 <td>  <font face="Quicksand" size="3"> [<a href="#home">go to top</a>]<br><div align="center" id="txt"></div></font> 
 <p align="center"><font face="Quicksand" size="2">
 		Course site hosted by github.io <br>Course Policy credits to <a href="https://faculty.iiit.ac.in/~raghu.reddy/Home.html">Dr. Raghu Reddy</a> & <a href="https://karthikvaidhyanathan.com/">Dr. Karthik Vaidhyanathan</a><br>
-	<a href="https://serc.iiit.ac.in">Software Engineering Research Center</a>,<a href="https://iiit.ac.in">IIIT Hyderabad</a></font></p></td>
+	<a href="https://serc.iiit.ac.in">Software Engineering Research Center</a>,<a href="https://iiit.ac.in">IIIT Hyderabad</a></font><br> </p><br><p id="lastUpdated">Site Last Updated on: </p></td>
 </tr>
 </table>
 
