@@ -1,1 +1,2 @@
-
+This dataset captures the end-to-end journey of 10,000 students applying for a Master’s program in India between January 2025 and June 2025, tracking their progression through four sequential examination stages - 
+Technical Entrance Test, IQ , Descriptive Exam, Face-to-Face Interview. Each student has one record per stage they reached, creating a “time travel” view of their admissions journey. For every stage, the dataset includes: Student Demographics: Student ID, first name, last name, gender, age (18–25), city, state, email, phone number. Exam Details: Stage name, date-time of exam (same day per stage for all candidates), pass/fail status.
