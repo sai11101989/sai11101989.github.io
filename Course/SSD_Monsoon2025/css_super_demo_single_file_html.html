@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CSS Super Demo – One File to Teach (Almost) Everything</title>
+  <!--
+    HOW TO USE THIS FILE
+    --------------------
+    • Open in a browser. Everything is self‑contained (no external assets).
+    • The left sidebar is a table of contents. Click to jump to a section.
+    • Use the controls in the header to tweak CSS custom properties live.
+    • Resize the window and the resizable container to trigger media/container queries.
+
+    This page demonstrates: selectors, cascade/specificity, variables, layers,
+    units, colors, box model, pseudo‑classes/elements, fonts & typography,
+    backgrounds/gradients, filters, blend modes, masking & clip‑path,
+    transforms, transitions, animations, 2D/3D, positioning, float & shape-outside,
+    flexbox, grid, multicol, tables, forms, inputs, scroll & sticky, z-index,
+    media queries, @supports, container queries, logical properties,
+    writing modes, counters, lists, scroll-snap, print styles, and more.
+
+    Tip: Open DevTools and Inspect elements as you teach.
+  -->
+  <style>
+    /*************
+     * LAYERS
+     *************/
+    @layer reset, base, components, utilities;
+
+    /*************
+     * RESET LAYER
+     *************/
+    @layer reset {
+      *, *::before, *::after { box-sizing: border-box; }
+      html, body { height: 100%; }
+      body { margin: 0; }
+      img, svg, video { max-width: 100%; height: auto; }
+      table { border-collapse: collapse; }
+      :root { color-scheme: light dark; }
+    }
+
+    /*************
+     * THEME VARIABLES & REGISTERED CUSTOM PROPERTIES
+     *************/
+    @property --angle { syntax: '<angle>'; inherits: false; initial-value: 45deg; }
+
+    :root {
+      /* Try changing these live in DevTools or via the header controls */
+      --hue: 200;                         /* theme hue */
+      --sat: 90%;                         /* theme saturation */
+      --light: 45%;                       /* theme lightness */
+      --radius: 14px;                     /* corner radius */
+      --space: 12px;                      /* base spacing */
+      --shadow: 0 6px 16px rgba(0,0,0,.12);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --font: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      --bg: hsl(0 0% 100%);
+      --fg: hsl(220 20% 12%);
+      --muted: hsl(220 14% 46%);
+      --brand: hsl(var(--hue) var(--sat) var(--light));
+      --brand-2: hsl(calc(var(--hue) + 40) var(--sat) 55%);
+      --brand-3: hsl(calc(var(--hue) + 80) 70% 55%);
+      --angle: 60deg; /* animated elsewhere */
+      --grad: conic-gradient(from var(--angle), var(--brand), var(--brand-2), var(--brand-3), var(--brand));
+
+      /* size & typography scale */
+      --step--1: clamp(.75rem, .73rem + .1vw, .85rem);
+      --step-0: clamp(.95rem, .9rem + .2vw, 1rem);
+      --step-1: clamp(1.15rem, 1rem + .6vw, 1.35rem);
+      --step-2: clamp(1.35rem, 1.1rem + 1.2vw, 1.75rem);
+      --step-3: clamp(1.75rem, 1.4rem + 2.2vw, 2.35rem);
+      --step-4: clamp(2.2rem, 1.6rem + 3.6vw, 3rem);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root { --bg: hsl(222 15% 10%); --fg: hsl(0 0% 98%); --muted: hsl(210 10% 70%); }
+    }
+
+    /*************
+     * BASE LAYER
+     *************/
+    @layer base {
+      body { font: 400 var(--step-0)/1.6 var(--font); background: var(--bg); color: var(--fg); }
+      h1,h2,h3 { line-height: 1.2; }
+      h1 { font-size: var(--step-4); }
+      h2 { font-size: var(--step-3); margin-block: 2rem 1rem; }
+      h3 { font-size: var(--step-2); margin-block: 1.5rem .75rem; }
+      code, pre, kbd, samp { font-family: var(--mono); }
+      a { color: var(--brand); text-decoration: none; }
+      a:hover { text-decoration: underline; }
+
+      /* Scroll */
+      html { scroll-behavior: smooth; }
+      :target { outline: 3px dashed var(--brand-2); outline-offset: 6px; }
+
+      /* Selection */
+      ::selection { background: var(--brand-2); color: white; }
+
+      /* Marker example for lists */
+      ul.ticks { list-style: none; padding-left: 1.2em; }
+      ul.ticks li::marker { content: ''; }
+      ul.ticks li::before { content: '✔'; margin-inline-end: .5em; color: var(--brand-3); }
+    }
+
+    /*************
+     * LAYOUT SHELL
+     *************/
+    @layer components {
+      header.site {
+        position: sticky; top: 0; z-index: 100;
+        background: linear-gradient(90deg, hsl(0 0% 0%/0.05), transparent) var(--bg);
+        backdrop-filter: saturate(1.2) blur(6px);
+        border-bottom: 1px solid hsl(0 0% 50%/.2);
+      }
+      header .bar { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 1rem; padding: .75rem 1rem; }
+      header .controls { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem; font-size: var(--step--1); }
+      header .controls label { display: inline-flex; align-items: center; gap: .35rem; }
+      header input[type="range"] { width: 140px; accent-color: var(--brand); }
+      header .chip { padding: .3rem .6rem; border-radius: 999px; border: 1px solid hsl(0 0% 50%/.25); background: hsl(0 0% 100%/.5); }
+
+      .wrap { display: grid; grid-template-columns: 260px 1fr; min-height: 100dvh; }
+      nav.toc { position: sticky; top: 3.25rem; align-self: start; padding: 1rem; border-right: 1px dashed hsl(0 0% 50%/.3); }
+      nav.toc a { display: block; padding: .25rem .25rem; border-radius: .5rem; }
+      nav.toc a:hover { background: hsl(0 0% 50%/.08); }
+
+      main { padding: 1rem 2vw 6rem; }
+
+      .card { border: 1px solid hsl(0 0% 50%/.2); border-radius: var(--radius); padding: 1rem; box-shadow: var(--shadow); background: hsl(0 0% 100%/.6); backdrop-filter: blur(2px); }
+      .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; }
+      @media (max-width: 900px) { .wrap { grid-template-columns: 1fr; } nav.toc { position: static; border-right: none; border-bottom: 1px dashed hsl(0 0% 50%/.3); } .grid-2 { grid-template-columns: 1fr; } }
+
+      /* Utility classes */
+      .muted { color: var(--muted); }
+      .pill { display: inline-block; padding: .25rem .5rem; border-radius: 999px; background: hsl(0 0% 50%/.1); }
+      .box { padding: var(--space); border-radius: var(--radius); border: 1px solid hsl(0 0% 60% / .25); background: linear-gradient(135deg, hsl(0 0% 100%/.8), hsl(0 0% 100%/.6)); }
+    }
+
+    /*************
+     * SPECIFICITY, SELECTORS, PSEUDOS DEMO
+     *************/
+    @layer components {
+      /* Attribute selectors */
+      [data-role="admin"] { outline: 2px solid var(--brand-2); }
+      a[href^="https"]::after { content: ' ↗'; font-size: .9em; }
+      a[href$=".pdf"] { font-style: italic; }
+
+      /* :is() and :where() reduce specificity */
+      :is(section, article, aside).demo-block { border: 1px dashed hsl(0 0% 50%/.4); padding: 1rem; border-radius: .75rem; }
+      :where(.demo-block) h3 { margin-top: 0; }
+
+      /* Pseudo classes */
+      .pseudo-demo button:hover { transform: translateY(-2px); }
+      .pseudo-demo button:active { transform: translateY(0); filter: brightness(.95); }
+      .pseudo-demo input:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+      .pseudo-demo input:invalid { border-color: crimson; }
+      .pseudo-demo input:valid { border-color: seagreen; }
+      .pseudo-demo input::placeholder { color: hsl(0 0% 50%); }
+      .pseudo-demo input[type="checkbox"]:checked + label { text-decoration: line-through; color: hsl(0 0% 40%); }
+
+      /* Parent selecting with :has() */
+      form:has(input:invalid) { box-shadow: 0 0 0 3px hsl(0 70% 50% / .2) inset; }
+
+      /* Pseudo elements */
+      .note::before { content: 'ⓘ '; color: var(--brand-2); }
+      .badge::after { content: attr(data-badge); margin-left: .5ch; padding: .1em .45em; border-radius: .6em; background: var(--brand-3); color: white; font-size: .8em; }
+      .fancy-title { position: relative; isolation: isolate; }
+      .fancy-title::after { content: ""; position: absolute; inset: 60% -4px -6px; z-index: -1; background: linear-gradient(90deg, var(--brand), var(--brand-2)); border-radius: 999px; filter: blur(6px); }
+
+      /* ::selection done in base */
+
+      /* Counters */
+      .steps { counter-reset: step; padding-left: 0; list-style: none; }
+      .steps li { counter-increment: step; }
+      .steps li::before { content: counter(step) '. '; font-weight: 700; color: var(--brand); }
+    }
+
+    /*************
+     * BOX MODEL, UNITS & TYPOGRAPHY
+     *************/
+    @layer components {
+      .box-demo { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+      .box-demo .b { border: 4px solid hsl(0 0% 60%); padding: 1rem; margin: .5rem; outline: 3px dashed hsl(0 0% 50%/.4); outline-offset: 6px; border-radius: var(--radius); box-shadow: 4px 4px 0 hsl(0 0% 70%); }
+      .units p { font-size: var(--step-0); }
+      .units .demo { font-size: 1rem; }
+      .units .demo span { display: inline-block; padding: .2em .5em; margin: .2em; border-radius: .4em; background: hsl(0 0% 50%/.12); }
+      .units .demo .px { width: 80px; }
+      .units .demo .em { width: 8em; }
+      .units .demo .rem { width: 8rem; }
+      .units .demo .vw { width: 15vw; }
+      .units .demo .ch { width: 20ch; }
+      .units .demo .clamp { width: clamp(180px, 40vw, 360px); }
+    }
+
+    /*************
+     * BACKGROUNDS, GRADIENTS, MASKING, BLENDS, FILTERS
+     *************/
+    @layer components {
+      .bg-demo { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1rem; }
+      .bg1 { background: linear-gradient(135deg, var(--brand), var(--brand-2)); color: white; }
+      .bg2 { background: radial-gradient(circle at 30% 30%, var(--brand-3), transparent),
+                              linear-gradient(90deg, hsl(0 0% 98%), hsl(0 0% 90%)); }
+      .bg3 { background: var(--grad); color: #111; }
+      .bg3.anim { animation: spin 6s linear infinite; }
+      @keyframes spin { to { --angle: 420deg; } }
+
+      .clip { color: transparent; background: linear-gradient(90deg, var(--brand), var(--brand-2), var(--brand-3)); -webkit-background-clip: text; background-clip: text; font-weight: 800; font-size: var(--step-3); }
+
+      .mask-demo { background: linear-gradient(135deg, var(--brand), var(--brand-3)); mask-image: radial-gradient(circle at 30% 40%, black 50%, transparent 60%); color: white; }
+      .blend-demo { position: relative; isolation: isolate; background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="%23ccc"/><stop offset="1" stop-color="%23999"/></linearGradient></defs><rect fill="url(%23g)" width="800" height="200"/><circle cx="120" cy="100" r="80" fill="%23fff" opacity="0.35"/><circle cx="280" cy="100" r="80" fill="%23fff" opacity="0.35"/><circle cx="440" cy="100" r="80" fill="%23fff" opacity="0.35"/></svg>'); background-size: cover; }
+      .blend-demo::after { content: "Blend"; position: absolute; inset: 0; display: grid; place-items: center; font-weight: 800; font-size: 3rem; mix-blend-mode: multiply; color: var(--brand); }
+      .filter-demo img { filter: grayscale(1) contrast(1.2); transition: filter .3s; border-radius: var(--radius); }
+      .filter-demo img:hover { filter: none; }
+
+      @supports (backdrop-filter: blur(8px)) {
+        .backdrop { backdrop-filter: blur(8px) saturate(1.2); background: hsl(0 0% 100%/.55); }
+      }
+    }
+
+    /*************
+     * LAYOUT: FLEX, GRID, MULTICOL, POSITIONING, FLOAT/SHAPES
+     *************/
+    @layer components {
+      .flex-demo { display: flex; flex-wrap: wrap; gap: .75rem; }
+      .flex-demo .item { flex: 1 1 140px; min-height: 60px; display: grid; place-items: center; border-radius: .6rem; background: hsl(0 0% 96%); border: 1px solid hsl(0 0% 60% / .2); }
+      .grid-demo { --cols: 4; display: grid; grid-template-columns: repeat(var(--cols), minmax(0,1fr)); gap: .75rem; }
+      .grid-demo .cell { min-height: 70px; display: grid; place-items: center; border-radius: .6rem; border: 1px solid hsl(0 0% 60%/.2); background: hsl(0 0% 96%); }
+      .grid-areas { display: grid; grid-template-areas: 'h h h' 's m a' 'f f f'; grid-template-columns: 180px 1fr 240px; gap: .75rem; }
+      .grid-areas > * { border: 1px solid hsl(0 0% 60%/.25); padding: .5rem; border-radius: .6rem; background: hsl(0 0% 98%); }
+      .grid-areas .h { grid-area: h; }
+      .grid-areas .s { grid-area: s; }
+      .grid-areas .m { grid-area: m; }
+      .grid-areas .a { grid-area: a; }
+      .grid-areas .f { grid-area: f; }
+
+      /* Positioning */
+      .pos-demo { position: relative; min-height: 150px; border: 1px dashed hsl(0 0% 50%/.5); }
+      .pos-demo .abs { position: absolute; inset: auto 10px 10px auto; padding: .5rem .75rem; background: var(--brand); color: white; border-radius: .5rem; box-shadow: var(--shadow); }
+      .pos-demo .sticky { position: sticky; top: .5rem; background: hsl(50 100% 50%/.15); padding: .25rem .5rem; border-radius: .4rem; display: inline-block; }
+
+      /* Float + shape-outside */
+      .shape-wrap { border: 1px solid hsl(0 0% 60%/.3); padding: 1rem; border-radius: .6rem; }
+      .shape { float: left; width: 140px; height: 140px; margin: .2rem 1rem .5rem 0; background: var(--brand-2); clip-path: circle(); shape-outside: circle(); }
+
+      /* Multicol */
+      .multicol { columns: 240px; column-gap: 1rem; }
+      .multicol p { break-inside: avoid; }
+    }
+
+    /*************
+     * FORMS, INPUTS, ACCENT-COLOR
+     *************/
+    @layer components {
+      .form-demo input, .form-demo select, .form-demo textarea { width: 100%; padding: .55rem .7rem; border: 1px solid hsl(0 0% 60%/.35); border-radius: .5rem; background: hsl(0 0% 100%/.8); color: inherit; }
+      .form-demo input:focus-visible, .form-demo select:focus-visible, .form-demo textarea:focus-visible { outline: 3px solid var(--brand); outline-offset: 2px; }
+      .form-demo input[type="checkbox"], .form-demo input[type="radio"] { accent-color: var(--brand); }
+      .range { width: 100%; accent-color: var(--brand-3); }
+      input[type="file"]::file-selector-button { border: 1px solid hsl(0 0% 60%/.4); padding: .4rem .7rem; border-radius: .5rem; background: hsl(0 0% 96%); }
+      .resize { resize: both; overflow: auto; }
+    }
+
+    /*************
+     * TRANSFORMS, 3D, TRANSITIONS, ANIMATIONS
+     *************/
+    @layer components {
+      .transform-demo { display: flex; gap: 1rem; flex-wrap: wrap; }
+      .cube { width: 120px; height: 120px; perspective: 700px; }
+      .cube .face { width: 100%; height: 100%; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius: var(--radius); display: grid; place-items: center; color: white; transition: transform .5s; transform-style: preserve-3d; }
+      .cube:hover .face { transform: rotateY(25deg) rotateX(15deg); }
+      .tilt { display: grid; place-items: center; width: 140px; height: 100px; border-radius: var(--radius); border: 1px solid hsl(0 0% 60%/.3); background: hsl(0 0% 98%); transition: transform .3s, box-shadow .3s; }
+      .tilt:hover { transform: translateY(-6px) rotate(-1deg); box-shadow: var(--shadow); }
+
+      .pulse { width: 18px; aspect-ratio: 1; border-radius: 50%; background: var(--brand-3); position: relative; }
+      .pulse::after { content: ""; position: absolute; inset: 0; border-radius: inherit; background: currentColor; animation: ring 1.2s infinite ease-out; }
+      @keyframes ring { from { transform: scale(1); opacity: .5; } to { transform: scale(3); opacity: 0; } }
+
+      @media (prefers-reduced-motion: reduce) {
+        * { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: 0s !important; scroll-behavior: auto !important; }
+      }
+    }
+
+    /*************
+     * SCROLL, SNAP, TARGET, Z-INDEX & STACKING
+     *************/
+    @layer components {
+      .snapper { display: grid; grid-auto-flow: column; grid-auto-columns: 85%; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 1rem; }
+      .snapper > div { scroll-snap-align: start; border: 1px solid hsl(0 0% 50%/.25); border-radius: var(--radius); padding: 1rem; }
+
+      .stack { position: relative; height: 140px; }
+      .stack > div { position: absolute; inset: auto auto 0 0; width: 120px; height: 80px; border-radius: .6rem; display: grid; place-items: center; }
+      .stack .one { background: var(--brand); color: #fff; z-index: 1; transform: translate(10px,-10px); }
+      .stack .two { background: var(--brand-2); color: #fff; z-index: 2; transform: translate(30px,-30px); }
+      .stack .three { background: var(--brand-3); color: #fff; z-index: 3; transform: translate(50px,-50px); }
+    }
+
+    /*************
+     * TABLE, LISTS & COUNTERS
+     *************/
+    @layer components {
+      table.demo { width: 100%; border: 1px solid hsl(0 0% 60%/.3); }
+      table.demo th, table.demo td { border: 1px solid hsl(0 0% 60%/.2); padding: .5rem .6rem; text-align: left; }
+      table.demo thead { background: hsl(0 0% 95%); }
+
+      .counter-demo { counter-reset: sec; }
+      .counter-demo h3::before { counter-increment: sec; content: counter(sec) ". "; color: var(--brand); }
+    }
+
+    /*************
+     * MEDIA QUERIES, CONTAINER QUERIES, LOGICAL PROPS, WRITING MODES
+     *************/
+    @layer components {
+      .media-demo { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: .75rem; }
+      .media-demo > div { padding: .75rem; border-radius: .6rem; border: 1px solid hsl(0 0% 60%/.3); background: hsl(0 0% 96%); text-align: center; }
+      @media (max-width: 800px) { .media-demo { grid-template-columns: 1fr; } }
+
+      /* Container query */
+      .container { container-type: inline-size; border: 2px dashed hsl(0 0% 50%/.4); padding: 1rem; border-radius: .75rem; resize: horizontal; overflow: auto; }
+      .cq-cards { display: grid; grid-template-columns: 1fr; gap: .75rem; }
+      @container (min-width: 480px) { .cq-cards { grid-template-columns: repeat(2, 1fr); } }
+      @container (min-width: 800px) { .cq-cards { grid-template-columns: repeat(3, 1fr); } }
+
+      .logical { border: 1px dashed hsl(0 0% 50%/.4); padding-block: 1rem; padding-inline: 1rem; margin-block: 1rem; }
+      .vertical { writing-mode: vertical-rl; border: 1px solid hsl(0 0% 60%/.3); padding: .5rem; }
+    }
+
+    /*************
+     * PRINT STYLES
+     *************/
+    @media print {
+      nav.toc, header.site { display: none; }
+      .card, .box, .grid-areas > * { box-shadow: none !important; background: white !important; }
+      a::after { content: " (" attr(href) ")"; font-size: .9em; }
+    }
+
+    /*************
+     * UTILITIES LAYER (last = highest priority in @layer)
+     *************/
+    @layer utilities {
+      .brand { color: var(--brand); }
+      .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+      .center { display: grid; place-items: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="bar">
+      <strong>CSS Super Demo</strong>
+      <div class="controls">
+        <span class="chip">Cascade ▶ Layers ▶ Specificity ▶ Inheritance</span>
+        <label>Hue <input type="range" min="0" max="360" value="200" id="hueRange"></label>
+        <label>Radius <input type="range" min="0" max="32" value="14" id="radiusRange"></label>
+        <label>Space <input type="range" min="4" max="24" value="12" id="spaceRange"></label>
+        <button id="themeToggle" class="pill" type="button" title="Toggle light/dark via custom properties">Toggle theme</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <nav class="toc">
+      <strong>Contents</strong>
+      <a href="#selectors">Selectors & Specificity</a>
+      <a href="#box">Box Model & Units</a>
+      <a href="#backgrounds">Backgrounds, Gradients, Filters</a>
+      <a href="#layout">Layout: Flex, Grid, Positioning, Shapes</a>
+      <a href="#forms">Forms & Inputs</a>
+      <a href="#transform">Transforms, Transitions & Animation</a>
+      <a href="#scroll">Scroll, Snap & Stacking</a>
+      <a href="#tables">Tables, Lists & Counters</a>
+      <a href="#media">Media & Container Queries</a>
+      <a href="#logic">Logical Props & Writing Modes</a>
+    </nav>
+
+    <main>
+      <h1 class="fancy-title">CSS Super Demo <span class="badge" data-badge="One File"></span></h1>
+      <p class="note">Open DevTools and play! Inline styles, IDs, classes, :is/:where, and @layer ordering all appear here to demonstrate the cascade.</p>
+
+      <!-- SELECTORS & SPECIFICITY -->
+      <section id="selectors" class="demo-block card counter-demo">
+        <h2>Selectors & Specificity <span class="pill">pseudo‑classes, pseudo‑elements, attribute, :has(), :is(), :where()</span></h2>
+        <div class="grid-2 pseudo-demo">
+          <div class="box" data-role="admin" id="specBox" style="border:3px solid orange">
+            <h3>Specificity showdown</h3>
+            <p>This box has <code>style="border:3px solid orange"</code> (inline > id > class). Click the buttons to toggle class &amp; ID.</p>
+            <p><button type="button" onclick="this.closest('#specBox').classList.toggle('brand')">Toggle <code>.brand</code> class</button>
+               <button type="button" onclick="this.closest('#specBox').id = this.closest('#specBox').id ? '' : 'specBox'">Toggle ID</button></p>
+            <p class="muted">Attribute selector <code>[data-role="admin"]</code> outlines this element.</p>
+          </div>
+          <div class="box">
+            <h3>Form pseudos & parent <code>:has()</code></h3>
+            <form class="form-demo" oninput="email.setCustomValidity(email.validity.typeMismatch ? 'Enter a valid email' : '')">
+              <label>Email (required)
+                <input id="email" name="email" type="email" required placeholder="name@example.com" />
+              </label>
+              <label><input type="checkbox" id="agree"> <label for="agree">Agree to terms</label></label>
+              <p><button type="submit">Submit</button></p>
+            </form>
+          </div>
+        </div>
+        <h3>Generated content & counters</h3>
+        <ol class="steps">
+          <li><code>::before/::after</code> add labels and decorations.</li>
+          <li><code>::selection</code> highlights selected text.</li>
+          <li><code>::marker</code> styles list bullets (see checkmarks below).</li>
+        </ol>
+        <ul class="ticks">
+          <li>Attribute selectors like <code>a[href^="https"]</code> add ↗ to external links.</li>
+          <li><a href="https://example.com">External link</a> &middot; <a href="#selectors">Internal link</a> &middot; <a href="file.pdf">PDF link</a></li>
+        </ul>
+      </section>
+
+      <!-- BOX MODEL & UNITS -->
+      <section id="box" class="demo-block card">
+        <h2>Box Model, Outline vs Border, Units & Typography</h2>
+        <div class="box-demo">
+          <div class="b">Content box with <strong>margin</strong>, <strong>border</strong>, <strong>padding</strong>, <strong>outline</strong>, and <code>box-shadow</code>.</div>
+          <div class="b" style="box-sizing:content-box">content-box</div>
+          <div class="b" style="box-sizing:border-box">border-box (preferred)</div>
+        </div>
+        <div class="units">
+          <p>Common units: <code>px</code>, <code>em</code>, <code>rem</code>, <code>%</code>, <code>vw/vh</code>, <code>vmin/vmax</code>, <code>ch</code>, <code>ex</code>. Functions: <code>calc</code>, <code>min/max/clamp</code>.</p>
+          <div class="demo">
+            <span class="px">80px</span>
+            <span class="em">8em</span>
+            <span class="rem">8rem</span>
+            <span class="vw">15vw</span>
+            <span class="ch">20ch</span>
+            <span class="clamp">clamp(180px, 40vw, 360px)</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- BACKGROUNDS, GRADIENTS, FILTERS -->
+      <section id="backgrounds" class="demo-block card">
+        <h2>Backgrounds, Gradients, Blends, Filters, Masks & Text Clip</h2>
+        <div class="bg-demo">
+          <div class="box bg1">Linear gradient background</div>
+          <div class="box bg2">Multiple backgrounds</div>
+          <div class="box bg3 anim">Conic gradient, animated via <code>@property</code></div>
+        </div>
+        <p class="clip">Background-clip: text — gradient-filled text</p>
+        <div class="grid-2">
+          <div class="box mask-demo">Masking with <code>mask-image: radial-gradient(...)</code></div>
+          <div class="box blend-demo">Blend modes with <code>mix-blend-mode</code></div>
+        </div>
+        <div class="grid-2 filter-demo">
+          <figure class="box">
+            <img alt="Placeholder" src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='420'><defs><linearGradient id='g' x1='0' x2='1'><stop offset='0' stop-color='%23e4e4e4'/><stop offset='1' stop-color='%23cfcfcf'/></linearGradient></defs><rect width='800' height='420' fill='url(%23g)'/><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-family='sans-serif' font-size='36' fill='%23888'>Hover to remove filter</text></svg>">
+            <figcaption class="muted">Filter demo: grayscale & contrast removed on hover</figcaption>
+          </figure>
+          <div class="box backdrop">@supports(backdrop-filter) applies frosted glass.</div>
+        </div>
+      </section>
+
+      <!-- LAYOUT -->
+      <section id="layout" class="demo-block card">
+        <h2>Layout: Flexbox, Grid, Positioning, Multicolumn, Float & Shapes</h2>
+        <h3>Flexbox</h3>
+        <div class="flex-demo">
+          <div class="item">1</div><div class="item">2</div><div class="item">3</div><div class="item">4</div><div class="item">5</div>
+        </div>
+        <h3>Grid</h3>
+        <div class="grid-demo" style="--cols: 5;">
+          <div class="cell">A</div><div class="cell">B</div><div class="cell">C</div><div class="cell">D</div><div class="cell">E</div>
+        </div>
+        <h3>Grid Template Areas</h3>
+        <div class="grid-areas">
+          <header class="h">Header</header>
+          <aside class="s">Sidebar</aside>
+          <main class="m">Main</main>
+          <aside class="a">Ads</aside>
+          <footer class="f">Footer</footer>
+        </div>
+        <h3>Positioning</h3>
+        <div class="pos-demo box">
+          <span class="sticky">I am sticky</span>
+          <p>Scroll the page; this sticky element sticks to the top (inside this box's scrollport).</p>
+          <div style="height: 180px"></div>
+          <span class="abs">Absolutely positioned</span>
+        </div>
+        <h3>Float + <code>shape-outside</code></h3>
+        <div class="shape-wrap">
+          <div class="shape" aria-hidden="true"></div>
+          <p>Text wraps around a circular float because of <code>shape-outside: circle()</code>. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, saepe! Voluptate, porro excepturi! Dignissimos in expedita minima veritatis, dolore eveniet nemo commodi. Repellat, facere aspernatur nobis adipisci commodi amet eaque?</p>
+          <div style="clear: both"></div>
+        </div>
+        <h3>Multi-column layout</h3>
+        <div class="multicol">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iure, molestiae? Omnis, tempora impedit. Aspernatur, suscipit, totam. Eius dicta amet error voluptatibus minima reprehenderit placeat consectetur odit recusandae nulla, ea commodi.</p>
+          <p>Soluta pariatur, nesciunt laboriosam, totam cupiditate quasi asperiores porro ducimus tenetur. Ut fuga est voluptates consequuntur illo ab saepe ad, impedit veritatis non aut ex tempora dicta nisi, ipsam quo.</p>
+          <p>Odio sed et obcaecati voluptates numquam, a voluptas repellat dicta voluptatem blanditiis, similique id libero nam architecto at. Iste repellendus molestiae minus eius, ipsum dignissimos cum ipsam numquam, consequuntur voluptates!</p>
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section id="forms" class="demo-block card">
+        <h2>Forms, Inputs, Validation, <code>accent-color</code>, and Resizable</h2>
+        <form class="grid-2 form-demo">
+          <p>
+            <label>Text <input type="text" placeholder="placeholder text" required></label>
+          </p>
+          <p>
+            <label>Number <input type="number" min="0" max="10" value="5"></label>
+          </p>
+          <p>
+            <label>Email <input type="email" placeholder="name@example.com" required></label>
+          </p>
+          <p>
+            <label>Password <input type="password" value="secret"></label>
+          </p>
+          <p>
+            <label>Search <input type="search"></label>
+          </p>
+          <p>
+            <label>Date <input type="date"></label>
+          </p>
+          <p>
+            <label>Range <input class="range" type="range" min="0" max="100" value="50"></label>
+          </p>
+          <p>
+            <label>Color <input type="color" value="#22aaff"></label>
+          </p>
+          <p>
+            <label>File <input type="file"></label>
+          </p>
+          <p>
+            <label>Select
+              <select>
+                <option>Alpha</option>
+                <option>Beta</option>
+                <option>Gamma</option>
+              </select>
+            </label>
+          </p>
+          <p>
+            <fieldset>
+              <legend>Choices</legend>
+              <label><input type="checkbox" checked> Check</label>
+              <label><input type="radio" name="r" checked> One</label>
+              <label><input type="radio" name="r"> Two</label>
+            </fieldset>
+          </p>
+          <p style="grid-column: 1/-1">
+            <label>Textarea</label>
+            <textarea class="resize" rows="3">Drag my corner to resize; see CSS resize & overflow.</textarea>
+          </p>
+        </form>
+      </section>
+
+      <!-- TRANSFORMS & ANIMATIONS -->
+      <section id="transform" class="demo-block card">
+        <h2>Transforms, Transitions, 3D & Animations (with reduced-motion respect)</h2>
+        <div class="transform-demo">
+          <div class="cube">
+            <div class="face">Hover me (3D)</div>
+          </div>
+          <div class="tilt">Hover me (transition)</div>
+          <div class="pulse" title="Animated ring via keyframes"></div>
+        </div>
+      </section>
+
+      <!-- SCROLL & STACKING -->
+      <section id="scroll" class="demo-block card">
+        <h2>Scroll snap, anchor target, and stacking context</h2>
+        <div class="snapper">
+          <div class="box"><h3 id="card1">Card 1</h3><p>Scroll horizontally (touchpad/touch) to snap.</p></div>
+          <div class="box"><h3 id="card2">Card 2</h3><p>Each card uses <code>scroll-snap-align</code>.</p></div>
+          <div class="box"><h3 id="card3">Card 3</h3><p>Try jumping to <a href="#card2">#card2</a>.</p></div>
+          <div class="box"><h3 id="card4">Card 4</h3><p>Smooth scrolling is enabled on <code>html</code>.</p></div>
+        </div>
+        <h3>Stacking & z-index</h3>
+        <div class="stack">
+          <div class="one">z:1</div>
+          <div class="two">z:2</div>
+          <div class="three">z:3</div>
+        </div>
+      </section>
+
+      <!-- TABLES, LISTS & COUNTERS -->
+      <section id="tables" class="demo-block card counter-demo">
+        <h2>Tables, Lists & Counters</h2>
+        <div class="grid-2">
+          <div>
+            <table class="demo">
+              <thead><tr><th>Name</th><th>Qty</th><th>Price</th></tr></thead>
+              <tbody>
+                <tr><td>Alpha</td><td>2</td><td>$9</td></tr>
+                <tr><td>Beta</td><td>5</td><td>$4</td></tr>
+                <tr><td>Gamma</td><td>1</td><td>$15</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div>
+            <h3>Ordered steps (custom counter)</h3>
+            <ol class="steps">
+              <li>Initialize</li>
+              <li>Process</li>
+              <li>Complete</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- MEDIA & CONTAINER QUERIES, LOGICAL PROPS -->
+      <section id="media" class="demo-block card">
+        <h2>Media Queries & Container Queries</h2>
+        <div class="media-demo">
+          <div>Resize viewport to see <code>@media</code> change the grid.</div>
+          <div class="box">prefers-color-scheme & prefers-reduced-motion are used globally.</div>
+          <div class="box">Try printing this page to view <code>@media print</code>.</div>
+        </div>
+        <h3>Resizable container (Container Query)</h3>
+        <div class="container" title="Drag right edge to resize & trigger @container breakpoints">
+          <div class="cq-cards">
+            <div class="box">Card</div>
+            <div class="box">Card</div>
+            <div class="box">Card</div>
+            <div class="box">Card</div>
+            <div class="box">Card</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="logic" class="demo-block card">
+        <h2>Logical Properties & Writing Modes</h2>
+        <div class="logical">This box uses <code>padding-inline</code> / <code>padding-block</code> and <code>margin-block</code> logical properties.</div>
+        <p><span class="vertical">Vertical writing mode (vertical-rl)</span></p>
+      </section>
+
+      <footer class="muted" style="margin-block: 4rem;">
+        <p>Made for teaching: demonstrates modern CSS. Safe to run locally. No external requests.</p>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    // Small helper: tweak CSS variables from the header controls
+    const root = document.documentElement;
+    hueRange.addEventListener('input', e => root.style.setProperty('--hue', e.target.value));
+    radiusRange.addEventListener('input', e => root.style.setProperty('--radius', e.target.value + 'px'));
+    spaceRange.addEventListener('input', e => root.style.setProperty('--space', e.target.value + 'px'));
+
+    // Theme toggle: flips background/foreground via CSS custom props
+    const themeToggle = document.getElementById('themeToggle');
+    let dark = false;
+    themeToggle.addEventListener('click', () => {
+      dark = !dark;
+      if (dark) {
+        root.style.setProperty('--bg', 'hsl(222 15% 10%)');
+        root.style.setProperty('--fg', 'hsl(0 0% 98%)');
+        root.style.setProperty('--muted', 'hsl(210 10% 70%)');
+      } else {
+        root.style.setProperty('--bg', 'hsl(0 0% 100%)');
+        root.style.setProperty('--fg', 'hsl(220 20% 12%)');
+        root.style.setProperty('--muted', 'hsl(220 14% 46%)');
+      }
+    });
+  </script>
+</body>
+</html>
