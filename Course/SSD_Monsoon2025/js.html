@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript Demo Page - Basics</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h2 {
+      color: darkblue;
+    }
+    button {
+      margin: 5px;
+      padding: 6px 12px;
+      border-radius: 5px;
+      border: none;
+      background-color: steelblue;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: navy;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>JavaScript Demo Page</h1>
+
+  <h2>1. Alert, Prompt, Confirm</h2>
+  <button onclick="showAlert()">Show Alert</button>
+  <button onclick="showPrompt()">Show Prompt</button>
+  <button onclick="showConfirm()">Show Confirm</button>
+
+  <h2>2. Operators</h2>
+  <button onclick="demoOperators()">Run Operators Demo</button>
+  <pre id="operatorsOutput"></pre>
+
+  <h2>3. If-Else & Switch</h2>
+  <button onclick="demoIfElse()">Run If-Else</button>
+  <button onclick="demoSwitch()">Run Switch</button>
+  <pre id="conditionOutput"></pre>
+
+  <h2>4. Functions</h2>
+  <button onclick="demoFunctions()">Run Functions</button>
+  <pre id="functionOutput"></pre>
+
+  <h2>5. Loops</h2>
+  <button onclick="demoLoops()">Run Loops</button>
+  <pre id="loopsOutput"></pre>
+
+  <h2>6. 'this' Keyword</h2>
+  <button onclick="demoThis()">Run 'this' Demo</button>
+  <pre id="thisOutput"></pre>
+
+  <script>
+    // 1. Alert, Prompt, Confirm
+    function showAlert() {
+      alert("This is an Alert Box!");
+    }
+
+    function showPrompt() {
+      let name = prompt("Enter your name:");
+      alert("Hello, " + name);
+    }
+
+    function showConfirm() {
+      let choice = confirm("Do you like JavaScript?");
+      alert("Your choice: " + choice);
+    }
+
+    // 2. Operators
+    function demoOperators() {
+      let a = 10, b = 5;
+      let out = "";
+      // Arithmetic + Assignment
+      out += "a = " + a + ", b = " + b + "\n";
+      out += "a + b = " + (a + b) + "\n";
+      out += "a -= b → " + (a -= b) + "\n";
+      // Comparison
+      out += "Is a > b? " + (a > b) + "\n";
+      // Logical
+      out += "(a > 0 && b > 0)? " + (a > 0 && b > 0) + "\n";
+      document.getElementById("operatorsOutput").innerText = out;
+    }
+
+    // 3. If-Else & Switch
+    function demoIfElse() {
+      let num = 15;
+      let out = "";
+      if (num % 2 === 0) {
+        out = num + " is Even";
+      } else {
+        out = num + " is Odd";
+      }
+      document.getElementById("conditionOutput").innerText = out;
+    }
+
+    function demoSwitch() {
+      let day = new Date().getDay();
+      let dayName;
+      switch(day) {
+        case 0: dayName = "Sunday"; break;
+        case 1: dayName = "Monday"; break;
+        case 2: dayName = "Tuesday"; break;
+        default: dayName = "Other Day";
+      }
+      document.getElementById("conditionOutput").innerText = "Today is " + dayName;
+    }
+
+    // 4. Functions
+    function square(x) {
+      return x * x;
+    }
+
+    function demoFunctions() {
+      let out = "square(5) = " + square(5) + "\n";
+      // Anonymous Function
+      let add = function(a, b) { return a + b; };
+      out += "add(2,3) = " + add(2,3) + "\n";
+      // Arrow Function
+      let multiply = (a, b) => a * b;
+      out += "multiply(4,5) = " + multiply(4,5);
+      document.getElementById("functionOutput").innerText = out;
+    }
+
+    // 5. Loops
+    function demoLoops() {
+      let out = "For loop: ";
+      for (let i=1; i<=3; i++) { out += i + " "; }
+
+      out += "\nWhile loop: ";
+      let j=1;
+      while (j<=3) { out += j + " "; j++; }
+
+      out += "\nDo-While loop: ";
+      let k=1;
+      do { out += k + " "; k++; } while(k<=3);
+
+      document.getElementById("loopsOutput").innerText = out;
+    }
+
+    // 6. this Keyword
+    function demoThis() {
+      let student = {
+        name: "Alice",
+        greet: function() {
+          return "Hello, my name is " + this.name;
+        }
+      };
+      document.getElementById("thisOutput").innerText = student.greet();
+    }
+  </script>
+</body>
+</html>
