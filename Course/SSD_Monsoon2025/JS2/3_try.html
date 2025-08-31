@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>JavaScript try, catch, finally Example</title>
+<style>
+  body { font-family: Arial, sans-serif; padding: 20px; max-width: 700px; line-height: 1.6; }
+  h2 { color: #2468a0; }
+  pre { background-color: #f4f4f4; padding: 10px; border-radius: 5px; white-space: pre-wrap; }
+  button { margin: 15px 0; padding: 10px 16px; font-size: 16px; cursor: pointer; }
+  #output {
+    background-color: #e8f1fc;
+    border-left: 4px solid #2468a0;
+    padding: 10px;
+    margin-top: 10px;
+    white-space: pre-wrap;
+    font-family: monospace;
+  }
+</style>
+</head>
+<body>
+
+<h1>JavaScript try, catch, finally Explanation</h1>
+
+<p><strong>try</strong> block contains code that may throw an error.<br>
+<strong>catch</strong> block handles the error if thrown.<br>
+<strong>finally</strong> block runs after try/catch regardless of error occurrence.</p>
+
+<pre>
+try {
+  // code that may throw error
+} catch (error) {
+  // handle error
+} finally {
+  // runs always, for cleanup
+}
+</pre>
+
+<button onclick="runExample()">Run try-catch-finally Example</button>
+
+<div id="output"></div>
+
+<script>
+  function runExample() {
+    let output = '';
+    try {
+      output += 'Inside try block: starting...\n';
+      // Intentionally throw an error
+      throw new Error("Something went wrong!");
+      output += 'This line will not execute due to error.\n';
+    } catch (error) {
+      output += 'Inside catch block: Caught error - ' + error.message + '\n';
+    } finally {
+      output += 'Inside finally block: Always runs.\n';
+    }
+    
+    document.getElementById('output').textContent = output;
+  }
+</script>
+
+</body>
+</html>
