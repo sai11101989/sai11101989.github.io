@@ -64,4 +64,4 @@ For example, Sharada offers “Beginner Guitar Lessons” and searches for “SQ
 
 ---
 
-**Team Size:** 4
+**Team Size:** 5
