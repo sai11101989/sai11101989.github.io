@@ -75,6 +75,5 @@ During floods, earthquakes, or cyclones, victims and volunteers struggle to coor
 **Team Size:** 5
 
 
----
-
-If you’d like, I can extend this spec with: sample data models (Requests/Offers/Assignments), SoS prioritization rules, matching heuristics, and a minimal dashboard wireframe to hand straight to student teams.
+-----
+**Point of Contact:** Sai Anirudh Karre (saianirudh.karre@iiit.ac.in)
