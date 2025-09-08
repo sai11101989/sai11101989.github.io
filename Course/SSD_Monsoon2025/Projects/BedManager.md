@@ -65,4 +65,7 @@ For example, Anuradha can see that out of 40 ICU beds, 35 are occupied, 3 are un
 
 **Team Size:** 5
 
+--
+**Point of Contact:** Sai Anirudh Karre (saianirudh.karre@iiit.ac.in)
+
 
