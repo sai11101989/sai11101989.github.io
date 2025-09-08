@@ -65,3 +65,6 @@ For example, Sharada offers “Beginner Guitar Lessons” and searches for “SQ
 ---
 
 **Team Size:** 5
+---
+
+**Point of Contact:** Sai Anirudh Karre (saianirudh.karre@iiit.ac.in)
