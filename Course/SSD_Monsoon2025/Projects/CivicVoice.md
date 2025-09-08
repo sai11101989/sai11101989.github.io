@@ -57,3 +57,7 @@ Citizen complaints may arrive in any form (typed text, speech converted to text,
 
 **Team Size:** 5
 
+---
+--
+**Point of Contact:** Sai Anirudh Karre (saianirudh.karre@iiit.ac.in)
+
