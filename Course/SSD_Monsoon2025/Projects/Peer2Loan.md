@@ -42,3 +42,5 @@ Small community groups want to **pool a fixed amount every month** and, in each 
 * **Auditor/Observer (optional):** read-only access to ledgers for transparency.
 
 **Team Size:** 5
+
+**Point of Contact:** Sai Anirudh Karre (saianirudh.karre@iiit.ac.in)
