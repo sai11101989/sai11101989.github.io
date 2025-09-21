@@ -54,90 +54,69 @@ function checkTime(i) {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body onload="startTime()">
-	<!--<script>
-	alert("All the Best for your Final Exam!");
+<!--	<script>
+	alert("All the Best for your MID Exam!");
 		</script>-->
 <table align="center" width="100%" cellspacing="10" cellpadding="10" border="0">
 <tr>
-<td><h1 align="center" id="home">CS6.302 - Software System Development</h1><h3 align="center">Software Engineering Research Center, IIIT Hyderabad</h3> <h3 align="center">Monsoon 2025</h3></td>
+<td><h1 align="center" id="home-header">CS6.302 - Software System Development</h1><h3 align="center">Software Engineering Research Center, IIIT Hyderabad</h3> <h3 align="center">Monsoon 2025</h3><hr></td>
 </tr>
 <tr>
-<td>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#about">About</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#lecture">Lecture/Lab/Office Hours</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#cpolicy">Course Policy</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#schedule">Lectures</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;  <a href="#lab">Lab</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#activity">Exams</a> &nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <a href="#staff">Staff</a>&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp; <hr></td>
+<td><h3 align="center" id="mid-header">Mid Term - Hackathon</h3></td>
 </tr>
 <tr>
-<td> <p align="left"><b id="about">About:</b> Software System Development is a graduate-level course that equips students with a comprehensive understanding of the principles, tools, and practices involved in designing and building modern software systems. Emphasizing a systems-oriented perspective, the course explores foundational and contemporary topics including Operating Systems, Computer Networks, Software Engineering methodologies, and Database Systems (both relational and NoSQL).
+<td> 
+<p align="left"><b id="about">Why Hackathon for SSD?</b> 
+- Software System Development will never happen in silos. This gives an opportunity for all the students to experience a team based ideation and development.
+We expect every team member to contribute towards this activity in some form so that you experience the journey of product development in action as a team.
 <br>
-<br>
-Students will gain practical experience with industry-relevant tools and technologies such as Bash scripting, SQL, NoSQL databases, HTML, CSS, JavaScript, front-end frameworks, RESTful APIs, Python, and Flask. The course focuses on building scalable, maintainable, and secure software systems while fostering an appreciation for system integration, version control, development workflows, and deployment strategies.
-<br>
-<br>
-Designed for students with a fundamental background in programming, this course bridges theory and practice, preparing them to contribute effectively to complex software development projects in both research and industry settings.<hr></td>
-</tr>
-<tr>
-<td> <p align="left"><b id="lecture">Lecture/Lab Hours:</b> The lectures will be in-person and will be conducted by the Instructor. The lab sessions will be in-person and will be conducted by the Teaching Assistants. The lecture material (slides, lectures notes, Suppl Material) can be accessed from this website The lecture and lab hours are mentioned below:
-
-<ul><li>Lecture &#x1F3DB; : 8:30 AM to 9:55 AM - Tuesdays and Fridays - Lecture Hall: H-205 - 29 Classes</li> <li>Lab/Tutorial &#x1F4BB; : 2:00 PM to 3:00 PM @ SH1 & 2:00 PM to 5:00 PM - Friday - Lecture Hall: SH1 - 14 Sessions </li></ul></p>
-<p align="left"><b>Office Hours:</b> There are no specific instructor office hours. Instructor is available to meet all the students for 15 minutes before every class to address any queries or concerns. You can also directly write to instructor at saianirudh.karre[at]iiit.ac.in to get your queries addressed. TA office hours can be found <a href="#staff">here</a>.
-</p><hr>
-</td>
-</tr>
-<tr>
-<td>
-<p align="left"><b id="cpolicy">Course Policy:</b> &nbsp;&nbsp;&nbsp;[<a href="#home">go to top</a>]
+<hr>
+<p align="left"><b id="about">Exam Scheme:</b> 
 <ul>
-<li><b>Teaching and Learning Methodology:</b>This course is designed in such a manner to help learners get the essence of principles behind good software system development. Learners will be taught concepts by making them work on real-life problems. This will promote deeper engagement, deeper understanding and resembles the true career situation. Overall Course Notes can be found <a href="https://tinted-rumba-8c6.notion.site/CS6-302-Software-System-Development-670da706e9514d7f9d5b1bcf3c6a1005" target="_blank">here</a></p>
-</li>
-<li><b>Academic Honesty:</b> If A helps B in a Task X -> B doesn't get opportunity to do task X, B doesn't learn the skill to do task X, B gets spoilt-dependent-unfit for jobs requiring skills of task X, You may think it is okay to do it only once and not repeat it, But when a task is done once it gets wired into the brain as being "okay" and unless there is a strong reason it will repeat. If you want to help, help to learn!
+<li>This is a Team based Activity. An individual in a team is required to contribute some part of the overall submission.</li>
+<li>This is an Open book exam. You are open to use LLM, but declare the usage.</li>
+<li>Each team is required to pick one problem from the available 5 problem statements and submit the solution based on the submission instructions.</li>
+</ul>
+<hr>
+<p align="left"><b id="about">Exam Schedule:</b>
+<ul>
+<li><b>Problem Statement announcement:</b> <i>Friday 26th September 2025, 5:00 PM</i> </li>
+<li><b>Problem Statement Finalization:</b> <i>Friday 26th September 2025, 10:00 PM</i> </li>
+<li><b>MID Hackathon Start Time:</b> <i>Friday 26th September 2025, 10:00 PM</i> </li>
+<li><b>MID Hackathon End Time:</b> <i>Sunday 28th September 2025, 10:00 PM</i> </li>
+<li><b>Grace Time (with penality):</b> You may get a grace time of 3 hours from the Hackathon end time with 5% penalty i.e. <i>Monday 29th September 2025, 1:00 AM</i>, grace time of 6 hours from the actual due datetime with 10% penalty i.e. <i>Monday 29th September 2025, 4:00 AM</i>, grace time of 12 hours from the actual due datetime with 15% penalty i.e. <i>Monday 29th September 2025, 10:00 AM</i></li>
+</ul>
+<hr>
+<p align="left"><b id="about">Exam Syllabus:</b>
+<ul>
+<li>Concepts covered in the Class (Native HTML, CSS, JS), NoSQL, SQL and React Basics including the concepts covered in Lab sessions</li>
+</ul>
+<hr>
+<p align="left"><b id="about">Logistics</b>
+<ul>
+<li>There is no specific Venue for this activity. You may wish to do it remote, virtual or together in some place.</li>
+<li>Please note that if any student in a given team is not available to participate in this activity, all the other team mates are required to mention it as part of peer review form so that the student will be excluded from the exam and will be awarded Absent.</li>
+</ul>
+<hr>
+<p align="left"><b id="about">Submission Checklist</b>
+<ul>
+<li>Project Selection Form: <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vDsaA3zPK06W7IZ1VVQKHFzW4INMf2JMjyL9qPnlPbNUQ09TMkk2U05IVEVDMVBJWUNRNEVOTkpDMi4u" target="_blank"> Click here </a> - Due: Friday 26th September 2025, 10:00 PM</li>
+<li>LLM Declaration Form: <a href="
+https://forms.office.com/Pages/ResponsePage.aspx?id=vDsaA3zPK06W7IZ1VVQKHFzW4INMf2JMjyL9qPnlPbNUNFFSOTM3MDE4T0NPWUpNOTZKSFFQSUJTRC4u" target="_blank"> Click here </a> - Due: Monday 29th September 2025, 10:00 AM</li>
+<li>Peer Review Form: <a href="https://forms.office.com/Pages/ResponsePage.aspx?id=vDsaA3zPK06W7IZ1VVQKHFzW4INMf2JMjyL9qPnlPbNURjRUSDA0QURKWFBCTzVCNFdDU1pDVTJZSy4u" target="_blank"> Click here </a> - Due: Monday 29th September 2025, 10:00 AM </li>
+<li>Submission Mode: Moodle</li>
+</ul>
 <br>
-<br> 
-</li>
-<li><b>Zero Tolerance on Plagiarism:</b>This course requires student to submit assignments, participate in in-class activities, give mid and final exams, work with groups on projects and so on. Any forms of cheating or plagiarism will result in a score of “0” for projects, assignments or exams. Egregious cases will result in a grade of “F” for the course.
-<br>
-<br> 
-</li>
-<li><b>Absentee policy:</b> You are expected to attend and participate in all lectures and lab sessions (graded or ungraded).  However, if any quiz/activity is held during the lecture session that you are absent, you will be given a ‘0’ for the same. There will be NO make up classes/quizzes/activities. These rules are not meant to be demeaning or penalizing. They are stated to establish a clear understanding of the course expectations for student participation and demeanor in the classroom. These rules are meant to help/motivate students to learn. 
-<br>
-<br> 
-</li>
-<li><b>Miscellaneous Instructions:</b> Given the subject is based on building software systems, ensure you have a laptop with decent configuration. Please make every effort to participate in the in-class discussions, interact with the instructor during class, interact with the TAs during the labs. You are expected to attend the class with your personal machine. 
-<br>
-<br> 
-</li>
-<li><b>Use of AI Tools:</b> Students are free to use different AI tools like ChatGPT, Co-pilot, etc. for the course assignments/activities. However, please do mention what tools and how they have been used in the submission report. Please note that these tools can mislead or provide wrong solutions. Its important to know the concept before using the tools. Tools are at the end-of-the day enablers. Today it will be ChatGPT tomorrow it will be something else but the concepts needs to be clear to leverage the different tools. Bottomline, feel free to use different tools but use them wisely!
-<br>
-<br> 
-</li>
-<li><b>Submission Deadlines:</b> Considering this course has more than 100+ enrolled students, there will be NO extensions! for any graded task. It is your responsibility to submit an assignment or a lab activity on a prescribed deadline. Please do not wait until last minute to submit your submission. We will not entertain last minute huddle issues due to moodle. The instructors and TAs shall provide considerable amount of time for all your assignments and lab activities with a grace time for submission. Please ensure that you follow the respective submission guidelines while you submit for assignments and lab activities. If you couldn't submit any graded task due to health issues/attending a game/attending a conference/personal issue - please work with academic office for exemption. 
-<br>
-<br> 
-</li>
-<li><b>Grading Policy:</b> Once a grade for certain course deliverable (labs, assignments, quiz, exam, etc.) is released, the students may request a re-evaluation (with appropriate reasons) of the grade up to a week after the grade has been posted. After that, the student may not discuss prior grades with the instructor (even if the instructors or TAs are at fault). There will be no makeup activity/lab under any circumstances unless prior permission is granted from Academic Office. Late submissions will not be entertained unless there is a genuine health reason. Appropriate medical documentation will be needed in such cases - - please work with academic office for exemption.
-<br>
-<br> 
-</li>
-<li><b>Grading Distribution:</b> The course instructor reserves the right to make minor modifications to the above distribution based on the progress of the courses. Below is the overall grade distribution.
-<br>
-<br> 
-<table border="1" align="center">
-<tr align="center"><th>Deliverables</th><th>Weightage</th></tr>
-<tr align="center"><td>Assignment (4)</td><td>15%</td></tr>
-<tr align="center"><td>Lab Activities (14)</td><td>15%</td></tr>
-<tr align="center"><td>Practice and Class Activity (5)</td><td>10%</td></tr>
-<tr align="center"><td>QUIZ (2)</td><td>10%</td></tr>
-<tr align="center"><td>MID (1) - Team Hackathon</td><td>10%</td></tr>
-<tr align="center"><td>Final Exam (Team Project)</td><td>40%</td></tr>
-</table>
-</li>
-<br>
-<li><b>Evaluation Rubric:</b> All evaluations as part of this course follow below evaluation rubric. TAs will follow below guidelines for evaluating assignments and lab activities for this course.
-<br>
-<br>
+
 
 <table align="center" width="10%" cellspacing="10" cellpadding="10" border="0">
 <tr>
 <td><p align="center"><font face="Quicksand" size="3">
 Important Links: <a href="https://intranet.iiit.ac.in/offices/static/files/Almanac_M25_Final-Ver2.1.pdf" target="_blank">Monsoon 2025 Almanac</a> | <a href="https://intranet.iiit.ac.in/offices/static/files/Lecture%20timetable%20for%20Monsoon_2025_V1.2.pdf" target="_blank">Spring 2025 Lecture Timetable</a> | <a href="https://intranet.iiit.ac.in/offices/static/files/Tutorials%26LAB_Schedule_M25-V2.pdf" target="_blank">Spring 2025 Lab Timetable</a> | <a href="https://courses.iiit.ac.in/course/view.php?id=5324" target="_blank">Courses Portal</a> 
 </font></p><hr></td>
+</tr>
+
+</td>
 </tr>
 <tr>
 <td>  <font face="Quicksand" size="3"> [<a href="#home">go to top</a>]<br><div align="center" id="txt"></div></font> 
