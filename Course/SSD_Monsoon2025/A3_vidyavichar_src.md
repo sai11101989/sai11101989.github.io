@@ -1,0 +1,1 @@
+--Below are the list of repositories associated with VidyaVichar
