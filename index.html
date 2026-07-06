@@ -1,577 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sai Anirudh Karre | SE4XR Researcher</title>
+  <meta name="description" content="Sai Anirudh Karre - Software Engineer, Data Product Manager, and SE4XR Researcher at IIIT Hyderabad.">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.4/css/academicons.min.css">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --color-bg: #fafafa;
+      --color-surface: #ffffff;
+      --color-text: #1a1a1a;
+      --color-text-muted: #555;
+      --color-accent: #2563eb;
+      --color-accent-hover: #1d4ed8;
+      --color-border: #e5e7eb;
+      --color-tag-bg: #f0f4ff;
+      --color-tag-text: #1e40af;
+      --max-width: 820px;
+      --radius: 6px;
+    }
 
-<html>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 15px;
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      padding: 2rem 1.5rem;
+    }
 
-<head><title>Sai Anirudh Karre's webpage</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-DF7Zhf293AJxJNTmh5zhoYYIMs2oXitRfBjY+9L//AY=" crossorigin="anonymous">
-  <!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/css/mdb.min.css" integrity="sha256-jpjYvU3G3N6nrrBwXJoVEYI/0zw8htfFnhT9ljN3JJw=" crossorigin="anonymous" />
+    .container {
+      max-width: var(--max-width);
+      margin: 0 auto;
+    }
 
-    <!-- Fonts & Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css" integrity="sha256-i1+4qU2G2860dGGIOJscdC30s9beBXjFfzjWLjBRsBg=" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:100,300,400,500,700|Material+Icons">
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
+    a:hover, a:focus {
+      color: var(--color-accent-hover);
+      text-decoration: underline;
+    }
 
-    <!-- Code Syntax Highlighting -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jwarby/jekyll-pygments-themes@master/github.css" media="none" id="highlight_theme_light" /> 
+    /* Header / Profile */
+    .profile {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+    }
+    .profile-photo {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+    .profile-info h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+    .profile-info .subtitle {
+      font-size: 1rem;
+      color: var(--color-text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .profile-info .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.75rem;
+    }
+    .tag {
+      background: var(--color-tag-bg);
+      color: var(--color-tag-text);
+      font-size: 0.75rem;
+      font-weight: 500;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+    }
+    .social-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .social-links a {
+      color: var(--color-text-muted);
+      transition: color 0.2s;
+    }
+    .social-links a:hover {
+      color: var(--color-accent);
+      text-decoration: none;
+    }
 
-<style>
-body {font-family: Quicksand; font-size: 14px; color:#333}
-        table
-        {
-            font-family: Quicksand; font-size:14px; color:#333;
-            border-collapse:collapse;
-            width:600px;
-            padding:10px;
-            border-spacing:10px
-			
-        }
+    /* Sections */
+    section {
+      margin-bottom: 2.5rem;
+    }
+    section h2 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      border-bottom: 2px solid var(--color-border);
+      padding-bottom: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    section p, section li {
+      color: var(--color-text);
+    }
 
-</style>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-139221712-1"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+    ul, ol {
+      padding-left: 1.25rem;
+    }
+    li {
+      margin-bottom: 0.6rem;
+    }
 
-gtag('config', 'UA-139221712-1');
-</script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script>
+    /* Year Filter */
+    .year-filter {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .year-btn {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      color: var(--color-text-muted);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 0.3rem 0.7rem;
+      border-radius: var(--radius);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .year-btn:hover, .year-btn.active {
+      background: var(--color-accent);
+      color: #fff;
+      border-color: var(--color-accent);
+    }
+    .year-btn:focus {
+      outline: 2px solid var(--color-accent);
+      outline-offset: 2px;
+    }
 
-$(document).ready(function(){
+    .pub-list {
+      display: none;
+      list-style-type: decimal;
+    }
+    .pub-list.visible {
+      display: block;
+    }
 
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	$("#ol2021").hide();
-	$("#ol2022").hide();
-	$("#ol2023").hide();
-	$("#ol2024").hide();
-	$("#ol2025").show();
+    /* Footer */
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--color-text-muted);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--color-border);
+    }
 
-
-$("#a2015").click(function(){
-$("#ol2015").show();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	$("#ol2021").hide();
-	$("#ol2022").hide();
-	$("#ol2023").hide();
-	$("#ol2024").hide();
-	$("#ol2025").hide();
-	     });
-
-$("#a2016").click(function(){
-$("#ol2015").hide();
-$("#ol2016").show();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	$("#ol2021").hide();
-	$("#ol2022").hide();
-	$("#ol2023").hide();
-	$("#ol2024").hide();
-	$("#ol2025").hide();
-       });
-	   
-	   $("#a2017").click(function(){
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").show();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	$("#ol2021").hide();
-	 $("#ol2022").hide();
-	$("#ol2023").hide();
-	$("#ol2024").hide();
-		   $("#ol2025").hide();
-       });
-
-$("#a2018").click(function(){
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").show();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	$("#ol2021").hide();
-	$("#ol2022").hide();
-	$("#ol2023").hide();
-	$("#ol2024").hide();
-	$("#ol2025").hide();
-       });
-
-$("#a2019").click(function(){
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").show();
-	$("#ol2020").hide();
-	$("#ol2021").hide();
-	$("#ol2022").hide();
-	$("#ol2023").hide();
-	$("#ol2024").hide();
-	$("#ol2025").hide();
-       });
-
-  $("#a2020").click(function(){
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").show();
-	$("#ol2021").hide();
-	  $("#ol2022").hide();
-	  $("#ol2023").hide();
-	  $("#ol2024").hide();
-	  $("#ol2025").hide();
-       });
-              
-    $("#a2021").click(function(){
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	$("#ol2021").show();
-	    $("#ol2022").hide();
-	    $("#ol2023").hide();
-	    $("#ol2024").hide();
-	    $("#ol2025").hide();
-       });
-	
-	  $("#a2022").click(function(){
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	 $("#ol2021").hide();
-	$("#ol2022").show();
-		  $("#ol2023").hide();
-		  $("#ol2024").hide();
-		  $("#ol2025").hide();
-       });
-	
-	  $("#a2023").click(function(){
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	 $("#ol2021").hide();
-	$("#ol2022").hide();
-		  $("#ol2023").show();
-		  $("#ol2024").hide();
-		  $("#ol2025").hide();
-       });
-
-	  $("#a2024").click(function(){
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	 $("#ol2021").hide();
-	$("#ol2022").hide();
-		  $("#ol2023").hide();
-		  $("#ol2024").show();
-		  $("#ol2025").hide();
-       });
-
-	 $("#a2025").click(function(){
-$("#ol2015").hide();
-$("#ol2016").hide();
-$("#ol2017").hide();
-	$("#ol2018").hide();
-	$("#ol2019").hide();
-	$("#ol2020").hide();
-	 $("#ol2021").hide();
-	$("#ol2022").hide();
-		  $("#ol2023").hide();
-		  $("#ol2024").hide();
-		   $("#ol2025").show();
-       });
-	
-});
-</script>
-<style>
-.thesis {
-  background-color: #8200C1; 
-  border: none;
-  color: white;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px;
-  margin: 4px 2px;
-   cursor: pointer;
-  border-radius: 8px;
-}
-
-.funded {
-  background-color: #b4f1f0; 
-  border: none;
-  color: black;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px;
-  margin: 4px 2px;
-   cursor: pointer;
-  border-radius: 8px;
-}
-
-.paper {
-  background-color: #9C94A1 ; 
-  border: none;
-  color: white;
-  padding: 5px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 10px;
-  margin: 4px 2px;
-   cursor: pointer;
-  border-radius: 8px;
-}
-</style>
+    /* Responsive */
+    @media (max-width: 600px) {
+      .profile {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-info .tags {
+        justify-content: center;
+      }
+      .social-links {
+        justify-content: center;
+      }
+    }
+  </style>
 </head>
 <body>
-<table align="center" width="85%" cellspacing="10" cellpadding="10" >
-<tr>
-<td valign="top" align="center">
-	<img style="border-radius: 50%" src="images/saianirudh.jpg" width="100%" height="100%"> 
-	 <br>
-	<div class="social">
-            <div class="contact-icons">
-           <a href="https://scholar.google.co.in/citations?user=ds5hIzoAAAAJ&hl=en" title="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i></a>
-                        <a href="https://www.linkedin.com/in/sai11101989" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
-            <a href="https://x.com/SaiAnirudhK1" title="X" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
-            <a href="https://dblp.org/pid/166/2399.html" title="DBLP" target="_blank" rel="noopener noreferrer"><i class="ai ai-dblp"></i></a>
-                      
-            </div>
-	
-    <hr>
-    <p>To collaborate, please write to <b>sai11101989@gmail.com, saianirudh.karre@iiit.ac.in</b>
-<!--	<hr>
-	<button class="funded" onclick="window.open('https://iiitaphyd-my.sharepoint.com/:b:/g/personal/saianirudh_karri_research_iiit_ac_in/EdJUaTChRAJIr3oQVbs_GNwBHAbhZ9CC7ySFZRiCK-q5Ng?e=0tNb2C', '_blank');"><b>Curriculum Vitae (CV)</b></button></p>-->
-    <hr>
-    <a href="https://en.wikipedia.org/wiki/Rashtrapati_Award" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/3/3d/Rashtrapati_Scout_%28The_Bharat_Scouts_and_Guides%29.png" width="80px" align="middle" alt="President's Scout" title="President's Scout"/></a>
-	<br> 
-	I am a President's Scout. Received an honorary Rastrapathi Award from People's President Late Sri. Bharata Ratna A.P.J Abdul Kalam in 2006 at New Delhi
-	<br>
-	<hr>	
-	<img src="http://icons.iconarchive.com/icons/dakirby309/simply-styled/256/Microsoft-Paint-icon.png" width="70px" align="middle" alt="I am an Hobby Artist" title="I am an Hobby Artist"/>
-	<br> 
-	I am a hobby artist. Since childhood, I was trained in pencil sketching, Watercolors, Oil Pastels, Oil on Canvas, and Glass Paintings. I couldn't get enough time to focus on a personal portfolio page. Maybe I'll mark it as my upcoming new year's resolution. 
-	<br>
-	<hr>	
-	<img src="images/cyprus.png" width="80px" align="middle" alt="Cyprus" title="Cyprus"/>
-	<br> 
-	Cyprus was the only country I visited outside India. I have attended a conference there back in 2019 and fell in attachment with their culture and cuisine. Overall the food was GOOD!
-	<br>
-	<hr>	
-	<img src="images/oecd.jpg" width="80px" align="middle" alt="oecd" title="oecd"/>
-	<br> 
-	I religiously follow OECD papers on economy, technology policies, health, clean energy, and climate change. Angus Maddison's work on The World Economy - A Millennial Perspective and Historical Statistics is a must-read for every person to widen their world perception. 
-	<br>
-<!--	<h3>Interesting Links</h3>
-	<a href="http://homepages.cs.ncl.ac.uk/brian.randell/NATO/nato1968.PDF" target="_blank">NATO Software Engineering Conference 1968</a>
-	<br />
-	<a href="https://www.newscientist.com/article/mg15821407-000-come-the-millennium-/?ignored=irrelevant" target="_blank">About Y2K Bug</a>
-	<br />
-	<a href="https://www.newscientist.com/article/2229238-a-lazy-fix-20-years-ago-means-the-y2k-bug-is-taking-down-computers-now/" target="_blank">About Y2020 Bug</a>
-	<br />
-	<a href="https://www.ibeta.com/historys-most-expensive-software-bugs/" target="_blank">Costly Bugs Ever</a>
-	<br />
-	<a href="https://www.nws.noaa.gov/oh/hrl/developers_docs/General_Software_Standards.pdf" target="_blank">Generic Coding Standards</a>
-	<br />
-	<a href="https://www.meity.gov.in/content/information-technology-act-2000" target="_blank">IT Act 2000</a>
-	<br />
-	<a href="https://ideas.ted.com/an-eye-opening-look-at-the-dot-com-bubble-of-2000-and-how-it-shapes-our-lives-today/" target="_blank">DotCom Bubble</a>
-	<br />
-	<a href="http://oldindianads.com/print/1973-ibm-praising-indian-mathematicians" target="_blank">IBM 1970s India Ad</a>-->
-</td>
-<td width="70%">
-   <table width="100%">
-   <tr>
-       <td align="left">
-	   <h1>Sai Anirudh Karre, PhD</h1> <h3>SE4XR Researcher</h3><p>#VR&nbsp;#metaverse&nbsp;#locomotion&nbsp;#Requirements4VR&nbsp;#SE4VR&nbsp;#Testing4VR</p>
-       </td>
-   </tr>
-   </table>
-<p>
-Hi! Thank you for visiting my page. 
-<br>
-<br>
-I am a Software Engineer with a strong background in developing data products and responsive UIs. I am also highly skilled at developing backend layers and APIs. I love to refactor legacy code and am an avid follower of <a href="https://martinfowler.com/">Martin Fowler's </a> experiences in Software System Development. 
-<br>
-<br>
-I started my career in 2011 in Software Services and Core Engineering.  I later moved into Product Management. I am currently working as a Data Product Manager at <a href="https://www.phenom.com/">Phenom Inc.</a> In the past, I worked for <a href="https://www.accurate.com/">Accurate Background Inc.</a> <a href="https://www.cornerstoneondemand.com/">Cornerstone Ondemand</a>, <a href="https://www.skillsoft.com/">Skillsoft Inc.</a>, and <a href="https://www.sumtotalsystems.com/">SumTotal Systems Inc.</a>
-<br>
-<br>
-Apart from work, I work as a Guest Faculty at <a href="https://iiit.ac.in">IIIT Hyderabad</a> and as a research collaborator at the <a href="https://serc.iiit.ac.in">Software Engineering Research Center, IIIT Hyderabad.</a> In the past, I also worked for <a href="https://upgrad.com">Upgrad</a> on designing course content for their MS program in Software Engineering offered by Liverpool John Moores University, UK.
-<br>
-<br>
-While working in the Industry, I joined the MS by Research program (Part-Time) at IIIT Hyderabad in 2013. I did research in the field of Software Quality Engineering and defended my <a href="http://web2py.iiit.ac.in/research_centres/publications/view_publication/mastersthesis/466"> Master's Dissertation</a> under the guidance of Prof. Y. Raghu Reddy in Oct 2016. Later in 2017, I joined PhD program and defended my <a href="https://web2py.iiit.ac.in/research_centres/publications/view_publication/phdthesis/240"> Doctoral Dissertation</a> in June 2024 under the guidance of Prof. Y. Raghu Reddy with a research focus on Requirements Engineering for Virtual Reality Software Products. I received my PhD in July 2024. 
-<br>
-<br>
-Apart from Work, Teaching, and Research, I dedicate my time to cooking, painting, Oil on Canvas, Plants, and my Mom!
-</p>
-<hr>
-	<h3>Research Interests</h3>
-		<ul>
-        <li>
-		Software Engineering - Software Modeling, Software Quality, Requirements, Software Productivity
-		</li>
-        <li>
-		Virtual Reality - Algorithms, Locomotion, Open-Source Tools, Authoring Tools, SDKs
-		</li>
-        <li>
-		Human Computer Interaction  
-		</li>
-		</ul>
-		<hr>
-	<h3>Teaching</h3>
-		<ul>
-        <li>
-		Introduction to Software Systems (UG) - Spring 2018, 2019, 2020, 2021, 2022, 2025
-		</li>
-		<li>
-		DevOps (PG) - Spring 2025
-		</li>
-        <li>
-		Software Engineering (PG, MS, PhD) - Spring 2019, 2022
-		</li>
-        <li>
-		Software System Development (PG, MS, PhD) - Monsoon 2019, 2020, 2021, 2022, 2024, 2025
-		</li>
-        <li>
-		Usability Engineering (PG, MS, PhD) - Spring 2016, 2021
-</li>
-			<li>
-		Wearable Computing (M.Tech - PDM) - Monsoon 2022
-		</li>
-        </ul>		
-		<hr>
-	<h3>Patents</h3>
-<ul>		
-<li>Neeraj Mathur, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <em>,<b>System and method for evaluating and facilitating customized guidelines using usability code pattern analysis</b></em>,<i> United States Patent: 11144430 (GRANTED)</i>, Assignee: IIIT Hyderabad, India, Granted Date: 2021/10/12, Expiry Date: 2040/03/11, https://patents.google.com/patent/US11144430B2/en
-</li>	
-<li>Y. Raghu Reddy, Raghav Mittal, <u>Sai Anirudh Karre</u> <em>,<b>System and Method for Generating a Limitless path in Virtual Reality Environment for Continuous Locomotion</b></em>,<i> United States Patent: 11687154 (GRANTED)</i>, Assignee: IIIT Hyderabad, India, Granted Date: 2023/06/27, Expiry Date: 2042/05/28, https://patents.google.com/patent/US11687154B2/en
-</li>	
-</ul>
-<hr>
-	<h3>Publications</h3>
-<h4><a class="funded" id="a2025">2025</a>&nbsp <a class="funded" id="a2024">2024</a>&nbsp <a class="funded" id="a2023">2023</a>&nbsp <a class="funded" id="a2022">2022</a>&nbsp <a class="funded" id="a2021">2021</a>&nbsp <a class="funded" id="a2020">2020</a>&nbsp <a class="funded" id="a2019">2019</a>&nbsp <a class="funded" id="a2018">2018</a>&nbsp <a class="funded" id="a2015">2015</a></h4>
+  <div class="container">
 
-<ol id="ol2025">
-<li> 
-	<u>Sai Anirudh Karre</u>, Amogha A Halhalli, Y. Raghu Reddy <b><i>VReqST: A Requirement Specification Tool for Virtual Reality Software Products,</i></b> DEMO Track @ 47th International Conference on Software Engineering (ICSE 2025), Sun 27 April - Sat 3 May 2025
-Ottawa, Ontario, Canada [Accepted]
-</li>
-	<li> 
-	Shambhavi Jahagirdar, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <b><i>VReqDV: Model based Design Generation & Design Versioning Tool for Virtual Reality Product Development</i></b> 20th Evaluation of Novel Approaches to Software Engineering (ENASE 2025), 4 - 6 April 2025, Porto, Portugal [Accepted]
-</li>
-	<li> 
-	Divij D, RadhaKrishna B, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <b><i>VRSLOG: An Approach to Log Immersive Experiences in Virtual Reality Systems</i></b> 20th Evaluation of Novel Approaches to Software Engineering (ENASE 2025), 4 - 6 April 2025, Porto, Portugal [Accepted]
-</li>
-</ol>	
-	
-<ol id="ol2024">
-<li><u>Sai Anirudh Karre</u>, Y. Raghu Reddy <b><i>Model-based approach for specifying requirements of virtual reality software products,</i></b> Frontiers in Virtual Reality Journal, Vol:5, doi: 10.3389/frvir.2024.1471579, Dec 2024</li>
-<li> Mohammad Waqas and Y Pawankumar Gururaj and V D Shanmukha Mitra, <u>Sai Anirudh Karre</u>, Y Raghu Reddy, Syed Azeemuddin<b><i>Using Virtual Reality for Detection and Intervention of Depression -- A Systematic Literature Review</i></b>arXiv:2403.01882, March 2024, https://arxiv.org/abs/2403.01882</li>
-<li>DSM Varanasi, Divij D, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <b><i>Measuring Software Development Waste in Open-Source Software Projects</i></b> 50th Euromicro Conference on Software Engineering and Advanced Applications (SEAA), Aug 28-30,2024, Jussieu - Paris, France </li>
-<li><u>Sai Anirudh Karre</u>, Y. Raghu Reddy, Raghav Mittal <b><i>RE Methods for Virtual Reality Software Product Development: A Mapping Study</i></b> ACM Transactions on Software Engineering and Methodology, Vol:33, Issue:4, pp:1-31, https://doi.org/10.1145/3649595, May 2024</li>
-<li>Dhiraj SM Varanasi, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <b> <i>Software Development Waste amidst COVID-19 Pandemic: An Industry Study </i></b> ISEC '24: Proceedings of the 17th Innovations in Software Engineering Conference
-February 2024, Article No.: 13, Pages 1 - 5, https://doi.org/10.1145/3641399.3641417</li>
-</ol>
-	
-<ol id="ol2023">
-<li><u>Sai Anirudh Karre</u>, Karthik Vaidhyanathan, Y. Raghu Reddy <b> <i> POSTER: A Tool based Experiment to Teach Elicitation and Specification of Virtual Reality Product Requirements</i></b> Proceedings of the ACM Conference on Global Computing Education Vol 2, CompEd 2023, Hyderabad, India, December 5-9, 2023. ACM 2023</li>
-<li><u>Sai Anirudh Karre</u>, Neeraj Mathur, Y. Raghu Reddy <b> <i> Assessing New Hires' Programming Productivity Through UMETRIX--An Industry Case Study</i></b> arXiv preprint arXiv:2305.03332 </li>
-<li><u>Sai Anirudh Karre</u>, Raghav Mittal, Y. Raghu Reddy <b> <i>Requirements Elicitation for Virtual Reality Products - A Mapping Study</i></b>, <i>In proceedings of the 16th Innovations in Software Engineering Conference 2023</i>, IIIT Allahabad, Prayagraj, Uttar Pradesh, India, Feburary 2023</li>
-</ol>	
-	
-<ol id="ol2022">	
-<li><u>Sai Anirudh Karre</u>, Vivek Pareek, Raghav Mittal, Y. Raghu Reddy <b><i>A Role Based Model Template for Specifying Virtual Reality Software</i></b>, In proceedings International Workshop on Virtual and Augmented Reality Software Engineering, in conjucture with Automated Software Engineering (ASE 2022), Mon 10 - Fri 14 October 2022 Oakland Center, Michigan, United States</li>
-<li>Mohammad Waqas Wani, Pawankumar Gururaj, Raghav Mittal, Vivek Preek, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy, Syed Azeemuddin, <b><i>VelGmat : Low Cost Gait Mat For Stance Phase
-Calculation</i></b>, In proceedings of IEEE Sensors 2022, Oct 30 - Nov 2, 2022, Dallas, Texas USA </li>
-<li>Y Pawankumar Gururaj, Raghav Mittal, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy, Syed Azeemuddin, <b><i>Towards Conducting Effective Locomotion Through Hardware Transformation in Head-Mounted-Device - A Review Study [POSTER]</i></b>, In proceedings of IEEE Virtual Reality Conference (IEEEVR 2022), 12-16 March 2022, Virtual  </li>
-<li>Y Pawankumar Gururaj, <u>Sai Anirudh Karre</u>, Raghav Mittal, Y. Raghu Reddy, Syed Azeemuddin, <b><i>Customizable Head-mounted Device for Detection of Eye Disorders using Virtual Reality</i></b>, In proceedings of 35th International Conference on VLSI Design and 19th International Conference on Embedded Systems, VLSID 2022, Virtual, 20th - 24th Feb, 2022. IEEE 2022 </li>
-<li>Raghav Mittal, <u>Sai Anirudh Karre</u>, Y Pawankumar Gururaj, Y. Raghu Reddy, <b><i>Enhancing Configurable Limitless Paths in Virtual Reality Environments</i></b>, In proceedings of the 15th Innovations in Software Engineering Conference 2022, Gandhinagar, India, Feburary 2022</li>
-	</ol>	
-   	<ol id="ol2021">
-	<li><u>Sai Anirudh Karre</u>, Lalit Mohan S, Abhinav Gupta, Y.Raghu Reddy, <em><b>Introducing Software System Course to Engineering Undergraduate Students - An Experience Report</b></em>, <i>In proceedings of 4th Software Engineering Education workshop (SEED 2021), in conjunction with Asia Pacific Software Engineering Conference (APSEC 2021)</i>, Virtual December 2021, CEUR Workshop Proceedings, Vol-3062, ISSN 1613-0073</li>
-	<li> Raghav Mittal, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <em><b>Designing Limitless Path in Virtual Reality Environment</b></em>,<i>In proceedings of Virtual, Augmented and Mixed Reality - 13th International Conference, VAMR 2021, Held as Part of the 23rd HCI International Conference, HCII 2021, Virtual Event, July 24-29, 2021, Proceedings. Lecture Notes in Computer Science 12770, Springer 2021, pp: 80-95, ISBN 978-3-030-77598-8</i>
-        </li>
-		<li> Mohit Kuri, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <em><b>Understanding Software Quality Metricsfor Virtual Reality Products - A Mapping Study</b></em>,<i>In proceedings of the 14th Innovations in Software Engineering Conference 2021</i>, Bhubaneswar, India, Feburary 2021 
-        </li>
-		<li><u>Sai Anirudh Karre</u>, Lalit Mohan S, Y. Raghu Reddy <em><b>Using project-based approach to teach design patterns: An Experience Report</b></em>,<i>In proceedings of the 14th Innovations in Software Engineering Conference 2021</i>, Bhubaneswar, India, Feburary 2021 
-        </li>
-		</ol>
-		<ol id="ol2020">
-		<li>Shivang Shekar, Rajat Gupta, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <em><b>Detecting Astigmatism Condition in Human Eye using VR</b></em>,<i>EuroVR 2020 Application, Exhibition & Demo Track: Proceedings of the Virtual EuroVR Conference. VTT Technology, Volume-381</i>, Virtual Conference, November 2020
-        </li>
-		<li>Shivang Shekar, Pranav Reddy Pesaladinne, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <em><b>VREye: Exploring Human Visual Acuity Test Using Virtual Reality</b></em>,<i>Virtual, Augmented and Mixed Reality. Industrial and Everyday Life Applications. HCII 2020. Lecture Notes in Computer Science, vol 12191. Springer, Cham</i>, July 2020 pp:  415-429 
-        </li>
-		<li><u>Sai Anirudh Karre</u>, Neeraj Mathur, Y. Raghu Reddy <em><b>Understanding usability evaluation setup for VR products in industry: a review study </b></em>,<i>ACM SIGAPP Applied Computing Review 19(4)</i>, January 2020 pp: 17-27 
-        </li>
-		</ol>
-		<ol id="ol2019">
-		<li><u>Sai Anirudh Karre</u>, Lalit Mohan S., Y. Raghu Reddy, K. V. Raghavan, R. D. Naik, Rahul Purandare, Amey Karkare<em><b>A report on 1st Software Engineering Research in India Update Meeting (SERI 2019)</b></em>, <i>ACM SIGSOFT Software Engineering Notes 44(3)</i>, November 2019 pp: 41-42
-        </li>
-		<li>Neeraj Mathur, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy <em><b>Grouping Semantically Related Change-Sets to Enhance Identification of Logical Coupling</b></em>, <i>In proceedings of the 31st International Conference on Software Engineering & Knowledge Engineering (SEKE)</i>, July 2019, Lisbon, Portugal, pp: 618-777 
-        </li>
-        <li><u>Sai Anirudh Karre</u>, Neeraj Mathur, Y. Raghu Reddy <em><b>Usability Evaluation of VR products in Industry - A Systematic Literature Review</b></em>,<i>In proceedings of the 34th ACM/SIGAPP Symposium On Applied Computing (SAC)</i>, April 2019, Limassol, Cyprus, pp: 1-11 
-        </li>
-        <li><u>Sai Anirudh Karre</u>, Neeraj Mathur, Y. Raghu Reddy: <em><b>Is Virtual Reality Product Development different?: An Empirical Study on VR Product Development Practices</b></em>, <i>In proceedings of the 12th Innovations in Software Engineering Conference (ISEC)</i>, Feburary 2019, Pune, India, pp:3.1-3.11 
-        </li>
-		</ol>
-		<ol id="ol2018">
-        <li> Neeraj Mathur, <u>Sai Anirudh Karre</u>, Y. Raghu Reddy: <em><b>Usability Evaluation Framework for Mobile Apps using Code Analysis</b></em>,<i> In proceedings of the Evaluation and Assessment in Software Engineering (EASE)</i>, June 2018, Christchurch, New Zealand, pp:187-192 
-        </li>
-		<li>Neeraj Mathur, <u>Sai Anirudh Karre</u>, Lalit Mohan S, Y. Raghu Reddy: <em><b>Analysis of FinTech Mobile App Usability for Geriatric Users in India</b></em>,<i> In proceedings of the 4th International ACM In-Cooperation HCI and UX Conference (CHIuXiD)</i>, March 2018, Yogyakarta, Indonesia, pp: 1-11 
-        </li>
-		</ol>
-		<ol id="ol2015">
-		<li>
-        <u>Sai Anirudh Karre</u>, Anveshi Shukla, Y. Raghu Reddy: <em><b>Does your Bug Tracking tool suit your needs? A Study on Open Source Bug Tracking tools</b></em>,<i>arXiv:1706.06799</i> 
-        </li>
-		<li>
-        <u>Sai Anirudh Karre</u>, Y. Raghu Reddy: <em><b>Model based approach to study Defect Dependency in Large Scale Integrated Software Products</b></em>,<i> arXiv:1706.05037</i> 
-        </li>
-        <li>
-        <u>Sai Anirudh Karre</u>, Y. Raghu Reddy: <em><b>Heuristic Approaches to Improve Product Quality in Large Scale Integrated Software Products</b></em>,<i> In Journal for Communications in Computer and Information Science</i>, Volume-599, Springer 2016, ISBN 978-3-319-30242-3, pp:80-97 
-        </li>
-		 <li>
-        <u>Sai Anirudh Karre</u>, Y. Raghu Reddy: <em><b>An Industrial Case Study on Improving Quality in Integrated Software Product using defect dependency</b></em>, <i>QuASoQ/WAWSE/CMCE@APSEC 2015</i>, New Delhi, India, CEUR Workshop Proceedings 1519, pp:1-8 
-        </li> 
-        <li>
-        <u>Sai Anirudh Karre</u>, Y. Raghu Reddy: <em><b>A Defect Dependency based Approach to Improve Software Quality in Integrated Software Products</b></em>,<i> In proceedings of the Evaluation of Novel Approaches to Software Engineering (ENASE)</i>, April 2015, Barcelona, Spain, pp:110-117
-        </li>    
-        </ol>
-		
-	</td>
-	</tr>
-	<tr>
-	<td colspan="2">
-	<hr>
-<!--		<h3>News and Updates</h3>
-	 <h5><a id="n2021">2021</a>&nbsp <a id="n2020">2020</a>&nbsp <a id="n2019">2019</a>&nbsp <a id="n2018">2018</a>&nbsp <a id="n2017">2017</a>&nbsp <a id="n2016">2016</a>&nbsp <a id="n2015">2015</a></h5>
+    <!-- Profile -->
+    <header class="profile">
+      <img class="profile-photo" src="images/saianirudh.jpg" alt="Photo of Sai Anirudh Karre">
+      <div class="profile-info">
+        <h1>Sai Anirudh Karre, PhD</h1>
+        <p class="subtitle">SE4XR Researcher &middot; Data Product Manager</p>
+        <div class="tags">
+          <span class="tag">VR</span>
+          <span class="tag">Metaverse</span>
+          <span class="tag">Locomotion</span>
+          <span class="tag">Requirements4VR</span>
+          <span class="tag">SE4VR</span>
+          <span class="tag">Testing4VR</span>
+        </div>
+        <div class="social-links">
+          <a href="https://scholar.google.co.in/citations?user=ds5hIzoAAAAJ&hl=en" title="Google Scholar" target="_blank" rel="noopener noreferrer"><i class="ai ai-google-scholar"></i></a>
+          <a href="https://www.linkedin.com/in/sai11101989" title="LinkedIn" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+          <a href="https://x.com/SaiAnirudhK1" title="X (Twitter)" target="_blank" rel="noopener noreferrer"><i class="fab fa-x-twitter"></i></a>
+          <a href="https://dblp.org/pid/166/2399.html" title="DBLP" target="_blank" rel="noopener noreferrer"><i class="ai ai-dblp"></i></a>
+          <a href="mailto:sai11101989@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </header>
 
-<ul>
-	<li>
-<b> [27 June 2024]</b> Defended my PhD thesis and awarded the Doctoral Degree at IIIT Hyderabad!
-</li>
-	<li>
-<b> [12 June 2023]</b> Joined Accurate Background as a Technical Product Manager!
-</li>
-	<li>
-<b> [2 June 2023]</b> Presented a Research Agenda on <b>"Virtual Reality Meets Software Engineering"</b> at <a href="https://sites.google.com/view/seri-2023-goa">SERI 2023</a>!
-</li>
-	<li>
-<b> [18 May 2023]</b> Reached 50 Citations! Personal Research goal achieved. Hope to hit 100 by end of next year.
-</li>
-	<li>
-<b> [10 April 2023]</b> Appointed as a Web Chair for International Conference on Software Architecture (ICSA) 2024 - (A), to be held at IIIT Hyderabad, India.
-</li>
-<li>
-<b> [30 Feburary 2023]</b> Started working as a Teaching Instructor for Design for Wearable Systems course for M.Tech Product Design Students.
-</li>
-<li>
-<b> [25 Feburary 2023]</b> Presented our Paper on Requirement Elicitation Methods for VR products at ISEC 2023, Prayagraj, UP, India.
-</li>
-<li>
-<b> [22 November 2022]</b> Our paper on <b>Requirement Elicitation Methods for Virtual Reality Products - A Mapping Study</b> is now accepted at ISEC 2023</li>
-<li>
-<b> [11 October 2022]</b> Our paper on <b>Role Based Model Template for Specifying Virtual Reality Products</b> is now accepted at VARSE 2022 @ ASE 2022, Michigan, USA </li>
-<li>
-<b> [1 August 2022]</b> Started working as a Course Instructor for Software System Development Course for M.Tech Monsoon 2022 @IIITH </li>	
-<li>
-<b> [5 May 2022]</b> Hurray! Successfully Defended my PhD proposal defence! Hell lot of work to finish by December 2022 </li>
-<li>
-<b> [1 April 2022]</b> Received Positive Feedback from Review Committe of my PhD Proposal </li>
-<li>
-<b> [24 March 2022]</b> Joined as a Course Instructor for Introduction to Software System Course - B.Tech (UG) </li>
-<li>
-<b> [10 January 2022]</b> Joined as a Head-TA and Project Instructor for Software Engineering Course for M.Tech (PG) </li>
-<li>
-<b> [5 January 2022]</b> Submitted my PhD Proposal for Proposal Review!</li>
-<li>
-<b> [25 December 2021]</b> Our paper on <b>Customizable Head-mounted Device for Detection of Eye Disorders using Virtual Reality</b> is now accepted at VLSID 2022 </li>
-<li>
-<b> [22 December 2021]</b> Our work on <b>Towards Conducting Effective Locomotion Through Hardware Transformation in Head-Mounted-Device - A Review Study</b> is accepted as POSTER at IEEEVR 2022 </li>
-<li>
-<b> [19 December 2021]</b> Our paper on <b>Enhancing Configurable Limitless Paths in Virtual Reality Environments</b> is now accepted at ISEC 2022 </li>
-<!--<li>
-<b> [25 October 2021]</b> Our paper titled <b>Introducing Software System Course to Engineering Undergraduate Students - An Experience Report</b> is accepted SEED Workshop @ APSEC 2021 </li>
-<li>
-<b> [10 October 2021]</b> Work Anniversary [HURRAY] - Completed 10 years at SumTotal Systems!</li>
-<li>
-<b> [9 October 2021]</b> Hosted Design Thinking Workshop with <a href="https://faculty.iiit.ac.in/~raghu.reddy/Home.html" target="_blank">Prof. Y. Raghu Reddy</a> and <a href="https://www.linkedin.com/in/abhinav-gupta-7824b85b/" target="_blank">Abhinav Gupta</a> at IIIT-H Campus. Click <a href="https://photos.app.goo.gl/wRcyVnNgjL53smaz8" target="_blank">here</a> for pictures</li>	
-<b> [15 August 2021]</b> My first patent - <a href="https://patents.google.com/patent/US20200104235A1/en">System and method for evaluating and facilitating customized guidelines using usability code pattern analysis</a> is now Granted for Publication</li>
-<li>
-<b> [11 August 2021]</b> Joined as a Course Instructor for Software System Course (PG) at IIIT Hyderabad</li>
-<li>
-<b> [14 May 2021]</b> Joined as a Course Instructor for Introduction to Software Systems Course (UG) at IIIT Hyderabad</li>
-<li>
-<b> [27 Feb 2021]</b> Presented our paper titled - <a href='https://www.youtube.com/watch?v=MwIuqHW2IFQ'>"Using Project based learning to teach Design Patterns"</a> at <a href='https://isoft.acm.org/isec2021/'>ISEC 2021</a> Virtually.
-</li>
-<li>
-	<b>[26 Feb 2021]</b> Presented our paper titled - "Understanding Software Quality Metrics for Virtual Reality Products - A Mapping Study" at <a href='https://isoft.acm.org/isec2021/'>ISEC 2021</a> Virtually.	
-</li>	
-<li> <b>[07 Jan 2021]</b> Promoted as Program Manager from Principal Engineer at SkillSoft Inc.
-</li>
-<li> <b>[01 Jan 2021]</b> Joined as a Teaching Assistant for Software Engineering Course  (CSE461.S21) at IIIT Hyderabad
-</li>
-<li>
-	<b>[12 Dec 2020]</b> Our Paper titled -  "Designing Endless Paths in Virtual Reality Environments" is accepted at <a href='http://2021.hci.international/'>International HCI 2021 Conference</a>
-	</li> 
-</ul>	
-<hr>-->
-</td>
-</tr>
-	
-<tr>
-<td colspan="2">
-<h3>Service</h3>
-<ul>
-	<li> <b>Reviewer:</b> <a href="https://www.frontiersin.org/">Frontiers Journal</a> </li>
-	<li> <b>Publicity Chair:</b> <a href="https://conf.researchr.org/home/isec-2025">ISEC 2025</a> </li>
-	<li> <b>Program Committee:</b> <a href="https://cods-comad.in/">CODS COMAD 2024 - Demo Track</a> </li>
-	<li> <b>Web Chair:</b> <a href="https://conf.researchr.org/home/icsa-2024">ICSA 2024</a> </li>
-<li> <b>Workshop Organizing Committee:</b> Software Engineering Research in India (SERI) - 2019, 2020; Design Thinking Workshop @ IIIT Hyderabad - 2016, 2021 </li>
-<li> <b>Local Arrangements Chair:</b> <a href="https://isoft.acm.org/isec2018/team.php">ISEC 2018</a>; <a href="https://isoft.acm.org/seri2020/org.html">SERI 2020</a></li>
-	<li> <b>Webmaster:</b> <a href="https://serc.iiit.ac.in">SERC</a> (2014-2023) </li>
-	<li> <b>Resources:</b> <a href="https://sai11101989.gitbook.io/iss_workbook" target="_blank">Intro to Software Systems Notes</a> </li>
-	</ul>	
-</td>
-</tr>
-</table>
+    <!-- About -->
+    <section>
+      <h2>About</h2>
+      <p>
+        Software Engineer with a strong background in data products, responsive UIs, and backend APIs.
+        Currently a Data Product Manager at <a href="https://www.phenom.com/">Phenom Inc.</a>
+        Previously at <a href="https://www.accurate.com/">Accurate Background</a>,
+        <a href="https://www.cornerstoneondemand.com/">Cornerstone OnDemand</a>,
+        <a href="https://www.skillsoft.com/">Skillsoft</a>, and
+        <a href="https://www.sumtotalsystems.com/">SumTotal Systems</a>.
+      </p>
+      <p style="margin-top:0.75rem;">
+        Guest Faculty at <a href="https://iiit.ac.in">IIIT Hyderabad</a> and research collaborator at the
+        <a href="https://serc.iiit.ac.in">Software Engineering Research Center</a>.
+        Received PhD in July 2024 with a focus on Requirements Engineering for Virtual Reality Software Products,
+        under the guidance of Prof. Y. Raghu Reddy.
+      </p>
+    </section>
+
+    <!-- Research Interests -->
+    <section>
+      <h2>Research Interests</h2>
+      <ul>
+        <li>Software Engineering &mdash; Modeling, Quality, Requirements, Productivity</li>
+        <li>Virtual Reality &mdash; Algorithms, Locomotion, Open-Source Tools, Authoring, SDKs</li>
+        <li>Human-Computer Interaction</li>
+      </ul>
+    </section>
+
+    <!-- Teaching -->
+    <section>
+      <h2>Teaching</h2>
+      <ul>
+        <li>Introduction to Software Systems (UG) &mdash; Spring 2018&ndash;2022, 2025</li>
+        <li>DevOps (PG) &mdash; Spring 2025</li>
+        <li>Software Engineering (PG/MS/PhD) &mdash; Spring 2019, 2022</li>
+        <li>Software System Development (PG/MS/PhD) &mdash; Monsoon 2019&ndash;2022, 2024, 2025</li>
+        <li>Usability Engineering (PG/MS/PhD) &mdash; Spring 2016, 2021</li>
+        <li>Wearable Computing (M.Tech PDM) &mdash; Monsoon 2022</li>
+      </ul>
+    </section>
+
+    <!-- Patents -->
+    <section>
+      <h2>Patents</h2>
+      <ol>
+        <li>
+          Neeraj Mathur, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy.
+          <em>System and method for evaluating and facilitating customized guidelines using usability code pattern analysis.</em>
+          US Patent 11144430 (Granted 2021-10-12).
+          <a href="https://patents.google.com/patent/US11144430B2/en" target="_blank" rel="noopener noreferrer">Link</a>
+        </li>
+        <li>
+          Y. Raghu Reddy, Raghav Mittal, <strong>Sai Anirudh Karre</strong>.
+          <em>System and Method for Generating a Limitless Path in Virtual Reality Environment for Continuous Locomotion.</em>
+          US Patent 11687154 (Granted 2023-06-27).
+          <a href="https://patents.google.com/patent/US11687154B2/en" target="_blank" rel="noopener noreferrer">Link</a>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Publications -->
+    <section>
+      <h2>Publications</h2>
+      <nav class="year-filter" aria-label="Filter publications by year">
+        <button class="year-btn active" data-year="2025">2025</button>
+        <button class="year-btn" data-year="2024">2024</button>
+        <button class="year-btn" data-year="2023">2023</button>
+        <button class="year-btn" data-year="2022">2022</button>
+        <button class="year-btn" data-year="2021">2021</button>
+        <button class="year-btn" data-year="2020">2020</button>
+        <button class="year-btn" data-year="2019">2019</button>
+        <button class="year-btn" data-year="2018">2018</button>
+        <button class="year-btn" data-year="2015">2015</button>
+      </nav>
+
+      <ol class="pub-list visible" data-year="2025">
+        <li><strong>Sai Anirudh Karre</strong>, Amogha A Halhalli, Y. Raghu Reddy. <em>VReqST: A Requirement Specification Tool for Virtual Reality Software Products.</em> DEMO Track @ ICSE 2025, Ottawa, Canada.</li>
+        <li>Shambhavi Jahagirdar, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>VReqDV: Model based Design Generation &amp; Design Versioning Tool for Virtual Reality Product Development.</em> ENASE 2025, Porto, Portugal.</li>
+        <li>Divij D, RadhaKrishna B, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>VRSLOG: An Approach to Log Immersive Experiences in Virtual Reality Systems.</em> ENASE 2025, Porto, Portugal.</li>
+      </ol>
+
+      <ol class="pub-list" data-year="2024">
+        <li><strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Model-based approach for specifying requirements of virtual reality software products.</em> Frontiers in Virtual Reality, Vol 5, Dec 2024.</li>
+        <li>Mohammad Waqas et al., <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy, Syed Azeemuddin. <em>Using Virtual Reality for Detection and Intervention of Depression &mdash; A Systematic Literature Review.</em> arXiv:2403.01882, March 2024.</li>
+        <li>DSM Varanasi, Divij D, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Measuring Software Development Waste in Open-Source Software Projects.</em> Euromicro SEAA 2024, Paris, France.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy, Raghav Mittal. <em>RE Methods for Virtual Reality Software Product Development: A Mapping Study.</em> ACM TOSEM, Vol 33(4), May 2024.</li>
+        <li>Dhiraj SM Varanasi, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Software Development Waste amidst COVID-19 Pandemic: An Industry Study.</em> ISEC 2024.</li>
+      </ol>
+
+      <ol class="pub-list" data-year="2023">
+        <li><strong>Sai Anirudh Karre</strong>, Karthik Vaidhyanathan, Y. Raghu Reddy. <em>POSTER: A Tool based Experiment to Teach Elicitation and Specification of Virtual Reality Product Requirements.</em> CompEd 2023, Hyderabad, India.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Neeraj Mathur, Y. Raghu Reddy. <em>Assessing New Hires' Programming Productivity Through UMETRIX &mdash; An Industry Case Study.</em> arXiv:2305.03332.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Raghav Mittal, Y. Raghu Reddy. <em>Requirements Elicitation for Virtual Reality Products &mdash; A Mapping Study.</em> ISEC 2023, Prayagraj, India.</li>
+      </ol>
+
+      <ol class="pub-list" data-year="2022">
+        <li><strong>Sai Anirudh Karre</strong>, Vivek Pareek, Raghav Mittal, Y. Raghu Reddy. <em>A Role Based Model Template for Specifying Virtual Reality Software.</em> VARSE @ ASE 2022, Michigan, USA.</li>
+        <li>Mohammad Waqas Wani et al., <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy, Syed Azeemuddin. <em>VelGmat: Low Cost Gait Mat For Stance Phase Calculation.</em> IEEE Sensors 2022, Dallas, USA.</li>
+        <li>Y Pawankumar Gururaj, Raghav Mittal, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy, Syed Azeemuddin. <em>Towards Conducting Effective Locomotion Through Hardware Transformation in HMD &mdash; A Review Study [POSTER].</em> IEEE VR 2022.</li>
+        <li>Y Pawankumar Gururaj, <strong>Sai Anirudh Karre</strong>, Raghav Mittal, Y. Raghu Reddy, Syed Azeemuddin. <em>Customizable Head-mounted Device for Detection of Eye Disorders using VR.</em> VLSID 2022.</li>
+        <li>Raghav Mittal, <strong>Sai Anirudh Karre</strong>, Y Pawankumar Gururaj, Y. Raghu Reddy. <em>Enhancing Configurable Limitless Paths in Virtual Reality Environments.</em> ISEC 2022, Gandhinagar, India.</li>
+      </ol>
+
+      <ol class="pub-list" data-year="2021">
+        <li><strong>Sai Anirudh Karre</strong>, Lalit Mohan S, Abhinav Gupta, Y. Raghu Reddy. <em>Introducing Software System Course to Engineering Undergraduate Students &mdash; An Experience Report.</em> SEED @ APSEC 2021.</li>
+        <li>Raghav Mittal, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Designing Limitless Path in Virtual Reality Environment.</em> VAMR @ HCII 2021, LNCS 12770, pp 80&ndash;95.</li>
+        <li>Mohit Kuri, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Understanding Software Quality Metrics for Virtual Reality Products &mdash; A Mapping Study.</em> ISEC 2021.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Lalit Mohan S, Y. Raghu Reddy. <em>Using project-based approach to teach design patterns: An Experience Report.</em> ISEC 2021.</li>
+      </ol>
+
+      <ol class="pub-list" data-year="2020">
+        <li>Shivang Shekar, Rajat Gupta, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Detecting Astigmatism Condition in Human Eye using VR.</em> EuroVR 2020.</li>
+        <li>Shivang Shekar, Pranav Reddy Pesaladinne, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>VREye: Exploring Human Visual Acuity Test Using Virtual Reality.</em> HCII 2020, LNCS 12191, pp 415&ndash;429.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Neeraj Mathur, Y. Raghu Reddy. <em>Understanding usability evaluation setup for VR products in industry: a review study.</em> ACM SIGAPP Applied Computing Review 19(4), Jan 2020.</li>
+      </ol>
+
+      <ol class="pub-list" data-year="2019">
+        <li><strong>Sai Anirudh Karre</strong> et al. <em>A report on 1st Software Engineering Research in India Update Meeting (SERI 2019).</em> ACM SIGSOFT SEN 44(3), Nov 2019.</li>
+        <li>Neeraj Mathur, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Grouping Semantically Related Change-Sets to Enhance Identification of Logical Coupling.</em> SEKE 2019, Lisbon, Portugal.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Neeraj Mathur, Y. Raghu Reddy. <em>Usability Evaluation of VR products in Industry &mdash; A Systematic Literature Review.</em> ACM SAC 2019, Limassol, Cyprus.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Neeraj Mathur, Y. Raghu Reddy. <em>Is Virtual Reality Product Development different?: An Empirical Study on VR Product Development Practices.</em> ISEC 2019, Pune, India.</li>
+      </ol>
+
+      <ol class="pub-list" data-year="2018">
+        <li>Neeraj Mathur, <strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Usability Evaluation Framework for Mobile Apps using Code Analysis.</em> EASE 2018, Christchurch, New Zealand.</li>
+        <li>Neeraj Mathur, <strong>Sai Anirudh Karre</strong>, Lalit Mohan S, Y. Raghu Reddy. <em>Analysis of FinTech Mobile App Usability for Geriatric Users in India.</em> CHIuXiD 2018, Yogyakarta, Indonesia.</li>
+      </ol>
+
+      <ol class="pub-list" data-year="2015">
+        <li><strong>Sai Anirudh Karre</strong>, Anveshi Shukla, Y. Raghu Reddy. <em>Does your Bug Tracking tool suit your needs? A Study on Open Source Bug Tracking tools.</em> arXiv:1706.06799.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Model based approach to study Defect Dependency in Large Scale Integrated Software Products.</em> arXiv:1706.05037.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>Heuristic Approaches to Improve Product Quality in Large Scale Integrated Software Products.</em> CCIS Vol 599, Springer 2016, pp 80&ndash;97.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>An Industrial Case Study on Improving Quality in Integrated Software Product using defect dependency.</em> QuASoQ/WAWSE/CMCE @ APSEC 2015.</li>
+        <li><strong>Sai Anirudh Karre</strong>, Y. Raghu Reddy. <em>A Defect Dependency based Approach to Improve Software Quality in Integrated Software Products.</em> ENASE 2015, Barcelona, Spain.</li>
+      </ol>
+    </section>
+
+    <!-- Service -->
+    <section>
+      <h2>Service</h2>
+      <ul>
+        <li><strong>Reviewer:</strong> <a href="https://www.frontiersin.org/" target="_blank" rel="noopener noreferrer">Frontiers Journal</a></li>
+        <li><strong>Publicity Chair:</strong> <a href="https://conf.researchr.org/home/isec-2025" target="_blank" rel="noopener noreferrer">ISEC 2025</a></li>
+        <li><strong>Program Committee:</strong> <a href="https://cods-comad.in/" target="_blank" rel="noopener noreferrer">CODS COMAD 2024 &mdash; Demo Track</a></li>
+        <li><strong>Web Chair:</strong> <a href="https://conf.researchr.org/home/icsa-2024" target="_blank" rel="noopener noreferrer">ICSA 2024</a></li>
+        <li><strong>Workshop Organizing:</strong> SERI 2019, 2020; Design Thinking Workshop @ IIIT Hyderabad 2016, 2021</li>
+        <li><strong>Local Arrangements Chair:</strong> ISEC 2018, SERI 2020</li>
+        <li><strong>Webmaster:</strong> <a href="https://serc.iiit.ac.in" target="_blank" rel="noopener noreferrer">SERC</a> (2014&ndash;2023)</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>&copy; 2025 Sai Anirudh Karre. Hosted on GitHub Pages.</p>
+    </footer>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const buttons = document.querySelectorAll('.year-btn');
+      const lists = document.querySelectorAll('.pub-list');
+
+      buttons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const year = btn.dataset.year;
+
+          buttons.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          lists.forEach(list => {
+            list.classList.toggle('visible', list.dataset.year === year);
+          });
+        });
+      });
+    });
+  </script>
 </body>
-	<p align="center"><font face="Quicksand" size="1">Hosted by github.io</font></p>
 </html>
-
-
-
